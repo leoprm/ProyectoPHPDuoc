@@ -36,18 +36,15 @@
                     <a href="productos.php" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span> Productos</a>
                     <a href="contacto.php" class="list-group-item"><span class="glyphicon glyphicon-globe"></span> Contacto</a>
                 </div>
-            </div><!--/.sidebar-offcanvas-->
+            </div>
             <div class="col-xs-12 col-sm-offset-1 col-sm-10">
-                <div class="jumbotron">
-                    <h1>¡Este es un Proyecto lindo!</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quisquam fugiat eaque iste explicabo laudantium laborum beatae at culpa doloremque? Deleniti accusantium aliquid necessitatibus, officia repudiandae totam enim at? Assumenda!
-                    </p>
-                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="page-header">
-                            <h1><span class="glyphicon glyphicon-shopping-cart"></span> Productos</h1>
+                            <h1><span class="glyphicon glyphicon-bookmark"></span> Categoria 1</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, sed, esse delectus omnis eum inventore sunt consequatur explicabo, commodi ullam hic atque quo eos non dolores fuga accusamus. Aspernatur, itaque.
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
@@ -122,10 +119,101 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <a href="productos.php" class="btn btn-primary">Ver todos los Productos</a>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/200x200" class="img-circle">
+                            <div class="caption">
+                                <h3>Un Producto</h3>
+                                <p>Su mini descripcion, algo simple y lol</p>
+                                <div class="clearfix">
+                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
