@@ -1,14 +1,14 @@
 <?php
-include '../constantes.php';
-include (PATHAPP.'/dbconnect/db_funciones.php');
+require __DIR__.'/../libs/db/db.php';
 
-class Usuario{
+class Usuario extends DB{
 	private $semail;
 	private $susuario;
 	private $spass;
 	private $nombre;
 	private $fechaingreso;
 	private $edita;
+	private $conexion;
 
 	function __construct($sema,$susr,$sclave,$nom,$fech,$edit){
 		$this->semail=$sema;
@@ -16,7 +16,9 @@ class Usuario{
 		$this->spass=md5($sclave);	
 		$this->snombre=$nom;	
 		$this->fechaingreso=$fech;
-		$this->edita=$edit;	
+		$this->edita=$edit;
+
+		$this->conexion = new DB();
 	}
 	
     /*Verifica el acceso a la sesion*/

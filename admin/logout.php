@@ -7,7 +7,7 @@
 	| Archivo encargado de cerrar la sesion de adminitracion
 	|
 	*/
-	require './config/env.php';
+	require __DIR__.'/../config/env.php';
 
   	header('Location: login.php');
 ?>

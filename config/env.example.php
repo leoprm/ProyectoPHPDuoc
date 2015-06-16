@@ -8,9 +8,13 @@
 | Variables utiles para definir entorno en la app, usadas como constantes.
 |
 */
-
-define('ROOT_URL','/ProyectoPHPDuoc');
-define('ROOT_ADMIN','/ProyectoPHPDuoc/admin/');
+session_start();
+define('ROOT_URL','/ruta-htdocs');
+define('ROOT_ADMIN','/ruta-htdocs/admin/');
 define('ADMIN_COLOR','skin-red');
+define("MYSQL_SERVER","mysql:host=localhost");
+define("MYSQL_USER","user");
+define("MYSQL_PASS","password");
+define("MYSQL_DB","dbname=nombrebasededatos");
 
 ?>
