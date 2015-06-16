@@ -1,5 +1,5 @@
 <?php
-include 'constantes.php';
+include '../constantes.php';
 include (PATHAPP.'/dbconnect/db_funciones.php');
 
 class Usuario{
@@ -14,7 +14,7 @@ class Usuario{
 		$this->semail=$sema;
 		$this->susuario=$susr;		
 		$this->spass=md5($sclave);	
-		$this->snombre=$snom;	
+		$this->snombre=$nom;	
 		$this->fechaingreso=$fech;
 		$this->edita=$edit;	
 	}
@@ -24,13 +24,13 @@ class Usuario{
 		$db=dbconnect();
 		/*Definición del query que permitira ingresar un nuevo registro*/
 		$sqlsel="select nombreuser from usuario
-		where username=:usr and password=:pwd";
+		where emailuser=:usr and password=:pwd";
 		
 		/*Preparación SQL*/
 		$querysel=$db->prepare($sqlsel);
 		
 		/*Asignación de parametros utilizando bindparam*/
-		$querysel->bindParam(':usr',$this->susuario);
+		$querysel->bindParam(':usr',$this->semail);
 		$querysel->bindParam(':pwd',$this->spass);
 		
 		$datos=$querysel->execute();
@@ -43,14 +43,14 @@ class Usuario{
 	function VerificaUsuario(){
 		$db=dbconnect();
 		/*Definición del query que permitira ingresar un nuevo registro*/
-		$sqlsel="select nombreuser from usuario
-		where username=:usr";
+		$sqlsel="select username from usuario
+		where emailuser=:usr";
 	
 		/*Preparación SQL*/
 		$querysel=$db->prepare($sqlsel);
 	
 		/*Asignación de parametros utilizando bindparam*/
-		$querysel->bindParam(':usr',$this->susuario);
+		$querysel->bindParam(':usr',$this->semail);
 	
 		$datos=$querysel->execute();
 	

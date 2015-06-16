@@ -1,3 +1,3 @@
 <?php
-define("PATHAPP",$_SERVER['DOCUMENT_ROOT']."/miraentuinterior/");
+define("PATHAPP",$_SERVER['DOCUMENT_ROOT']."/ProyectoPHPDuoc/");
 ?>

@@ -9,6 +9,8 @@
 |
 */
 
-define('ROOT_URL','/');
-define('ROOT_ADMIN','/admin/');
+define('ROOT_URL','/ProyectoPHPDuoc');
+define('ROOT_ADMIN','/ProyectoPHPDuoc/admin/');
 define('ADMIN_COLOR','skin-red');
+
+?>

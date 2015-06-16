@@ -34,7 +34,7 @@
       		</div>
       		<div class="login-box-body">
         		<p class="login-box-msg">Para acceder inicia sesión</p>
-        		<form action="<?= ROOT_ADMIN ?>dologin.php" method="post">
+        		<form action="dologin.php" method="post">
           			<div class="form-group has-feedback">
             			<input type="email" class="form-control" placeholder="Email" name="email" id="email"/>
             			<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
