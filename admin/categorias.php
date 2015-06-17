@@ -10,10 +10,10 @@
 	*/
 	$titulo = "Categorias";
 
-	require './config/env.php';
-	include './templates/header.php';
-	include './templates/menu.php';
-	include './templates/sidebar.php';
+	require __DIR__.'/../config/env.php';
+	require __DIR__.'/./templates/header.php';
+	require __DIR__.'/./templates/menu.php';
+	require __DIR__.'/./templates/sidebar.php';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -188,5 +188,5 @@
 	| Solo se hace un require del footer de la pagina de admin.
 	|
 	*/
-	include './templates/footer.php';
+	require __DIR__.'/./templates/footer.php';
 ?>

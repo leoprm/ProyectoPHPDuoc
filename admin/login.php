@@ -8,7 +8,7 @@
 	| importa el archivo de entorno para definicion de constantes
 	|
 	*/
-	require './config/env.php';
+	require __DIR__.'/../config/env.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,13 +34,23 @@
       		</div>
       		<div class="login-box-body">
         		<p class="login-box-msg">Para acceder inicia sesión</p>
+
+                <?php if( array_key_exists('error_tmp', $_SESSION) ){ ?>
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-ban"></i> Error!</h4>
+                        <?= $_SESSION['error_tmp'] ?>
+                        <?php unset($_SESSION['error_tmp']); ?>
+                    </div>
+                <?php } ?>
+
         		<form action="<?= ROOT_ADMIN ?>dologin.php" method="post">
           			<div class="form-group has-feedback">
-            			<input type="email" class="form-control" placeholder="Email"/>
+            			<input type="email" class="form-control" placeholder="Email" name="email" id="email"/>
             			<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           			</div>
           			<div class="form-group has-feedback">
-            			<input type="password" class="form-control" placeholder="Password"/>
+            			<input type="password" class="form-control" placeholder="Password" name="pass" id="pass"/>
             			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
           			</div>
           			<div class="row">
