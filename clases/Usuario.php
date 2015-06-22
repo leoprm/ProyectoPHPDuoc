@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/../libs/db/db.php';
 
-class Usuario extends DB{
+class Usuario{
 	private $semail;
 	private $susuario;
 	private $spass;
@@ -23,13 +23,12 @@ class Usuario extends DB{
 	
     /*Verifica el acceso a la sesion*/
 	function VerificaAcceso(){
-		$db=dbconnect();
 		/*Definición del query que permitira ingresar un nuevo registro*/
 		$sqlsel="select nombreuser from usuario
 		where emailuser=:usr and password=:pwd";
 		
 		/*Preparación SQL*/
-		$querysel=$db->prepare($sqlsel);
+		$this->conexion->prepare($sqlsel);
 		
 		/*Asignación de parametros utilizando bindparam*/
 		$querysel->bindParam(':usr',$this->semail);
