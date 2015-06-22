@@ -23,7 +23,7 @@ class Usuario{
 	
     /*Verifica el acceso a la sesion*/
 	function VerificaAcceso(){
-		/*Definición del query que permitira ingresar un nuevo registro*/
+		/*Definición del query que permitira verificar un nuevo registro*/
 		$sqlsel="select nombreuser from usuario
 		where emailuser=:usr and password=:pwd";
 		
@@ -42,13 +42,12 @@ class Usuario{
 	
 	/*Trae Nombre usuario cuando inicia sesion*/
 	function VerificaUsuario(){
-		$db=dbconnect();
-		/*Definición del query que permitira ingresar un nuevo registro*/
+		/*Definición del query que permitira buscar un nuevo registro*/
 		$sqlsel="select username from usuario
 		where emailuser=:usr";
 	
 		/*Preparación SQL*/
-		$querysel=$db->prepare($sqlsel);
+		$this->conexion->prepare($sqlsel);
 	
 		/*Asignación de parametros utilizando bindparam*/
 		$querysel->bindParam(':usr',$this->semail);
