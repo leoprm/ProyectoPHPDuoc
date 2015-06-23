@@ -11,13 +11,14 @@
 CREATE DATABASE IF NOT EXISTS `miraentuinterior` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 USE `miraentuinterior`;
 
+
+drop table if exists PRODUCTO;
+
 drop table if exists CATEGORIA;
 
 drop table if exists COLOR;
 
 drop table if exists CONTACTO;
-
-drop table if exists PRODUCTO;
 
 drop table if exists USUARIO;
 

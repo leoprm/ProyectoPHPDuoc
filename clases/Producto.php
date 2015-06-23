@@ -23,7 +23,7 @@ class Producto{
 		$this->conexion = new DB();
 	}
 
-	function AgregarProducto($categoria,$color,$usuario){
+	function AgregarProducto(){
 		/*Definición del query que permitira ingresar un nuevo registro*/
 		$sqlins="insert into producto(idcategori,idcolor,idusuario,nombreprod,descripprod,precio,dimancho,dimalto,imagenprod,cantidad)
 		values(:cate,:colr,:usr,:nomprod,:desc,:prec,:danc,:dalt,:img,:cant)";
