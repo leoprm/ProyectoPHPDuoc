@@ -10,6 +10,7 @@
 	*/
 	$titulo = "Agregar Categoria";
 
+	require __DIR__.'/../config/auth.php';
 	require __DIR__.'/../config/env.php';
 	require __DIR__.'/./templates/header.php';
 	require __DIR__.'/./templates/menu.php';

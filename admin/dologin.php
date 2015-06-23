@@ -7,22 +7,26 @@
 	| Archivo encargado de crear el inicio de sesion
 	|
 	*/
-	ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
-	
+	require __DIR__.'/../config/auth.php';
 	require __DIR__.'/../config/env.php';
 	require __DIR__.'/../clases/Usuario.php';
 	
 	if( !empty($_POST['email']) && !empty($_POST['pass']) ){
-		$usr = new Usuario($_POST['email'],"",$_POST['pass'],"","","");
-	    var_dump($usr);
-		if($usr->VerificaAcceso()){
-			echo "Todo bien";
+		$usuario = new Usuario($_POST['email'],"",$_POST['pass'],"","","");
+		if($usuario->login()){
+	    	$_SESSION['usuario'] = [
+	    		'id' => $usuario->id ,
+	    		'nombre' => $usuario->nombre ,
+	    		'username' => $usuario->username ,
+	    		'email' => $usuario->email ,
+	    		'fechaIngreso' => $usuario->fechaIngreso ,
+	    		'puedeEditar' => $usuario->edita 
+	    	];
 			header('Location: index.php');
 		}
 		else{
-			echo "error en la PWD";
+			$_SESSION['error_tmp'] = "Credenciales de acceso incorrectas";
+			header('Location: login.php');
 		}		
 	}
 	else{

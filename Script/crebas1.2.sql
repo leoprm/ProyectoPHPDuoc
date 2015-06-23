@@ -82,10 +82,10 @@ create table PRODUCTO
 create table USUARIO
 (
    IDUSUARIO            bigint unsigned not null auto_increment,
-   EMAILUSER            varchar(20) not null,
+   EMAILUSER            varchar(150) not null,
    USERNAME             varchar(25) not null,
    PASSWORD             varchar(50) not null,
-   NOMBREUSER           varchar(60) not null,
+   NOMBREUSER           varchar(100) not null,
    FECHAINGRESO         datetime not null,
    EDITA                bool not null,
    primary key (IDUSUARIO)

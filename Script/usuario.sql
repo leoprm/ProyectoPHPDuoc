@@ -1,0 +1,1 @@
+INSERT INTO `miraentuinterior`.`USUARIO` (`IDUSUARIO`, `EMAILUSER`, `USERNAME`, `PASSWORD`, `NOMBREUSER`, `FECHAINGRESO`, `EDITA`) VALUES (NULL, 'grumpy@cat.cl', 'grumpycat', MD5('123'), 'Grumpy Cat', '2015-06-23 16:43:23', '1');

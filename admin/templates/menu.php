@@ -52,16 +52,16 @@
           			<!-- Usuario Logeado -->
           			<li class="dropdown user user-menu">
             			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              				<img src="<?= ROOT_URL ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-              				<span class="hidden-xs">Waripolo</span>
+              				<!-- <img src="<?= ROOT_URL ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/> -->
+              				<span class="hidden-xs"><?= $_SESSION['usuario']['nombre'] ?></span>
             			</a>
             			<ul class="dropdown-menu">
               				<!-- User image -->
               				<li class="user-header">
-                				<img src="<?= ROOT_URL ?>assets/dist/img/user2-160x160.jpg" class="img-circle" />
+                				<!-- <img src="<?= ROOT_URL ?>assets/dist/img/user2-160x160.jpg" class="img-circle" /> -->
                 				<p>
-                  					Waripolo - Administrador
-                  					<small>Miembre desde junio del 2015</small>
+                  					<?= $_SESSION['usuario']['nombre'] ?>
+                  					<small>Miembre desde <?= $_SESSION['usuario']['fechaIngreso'] ?></small>
                 				</p>
               				</li>
               				<!-- Menu Footer-->

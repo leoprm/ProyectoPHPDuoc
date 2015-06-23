@@ -9,5 +9,6 @@
 	*/
 	require __DIR__.'/../config/env.php';
 
-  	header('Location: login.php');
+	session_destroy();
+  	header('Location: '.ROOT_ADMIN.'login.php');
 ?>

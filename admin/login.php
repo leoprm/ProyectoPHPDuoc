@@ -8,6 +8,7 @@
 	| importa el archivo de entorno para definicion de constantes
 	|
 	*/
+  require __DIR__.'/../config/auth.php';
 	require __DIR__.'/../config/env.php';
 ?>
 
