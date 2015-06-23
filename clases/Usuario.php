@@ -49,13 +49,12 @@ class Usuario{
 	
 	/*Trae Nombre usuario cuando inicia sesion*/
 	function VerificaUsuario(){
-		$db=dbconnect();
-		/*Definición del query que permitira ingresar un nuevo registro*/
+		/*Definición del query que permitira buscar un nuevo registro*/
 		$sqlsel="select username from usuario
 		where emailuser=:usr";
 	
 		/*Preparación SQL*/
-		$querysel=$db->prepare($sqlsel);
+		$this->conexion->prepare($sqlsel);
 	
 		/*Asignación de parametros utilizando bindparam*/
 		$querysel->bindParam(':usr',$this->email);
