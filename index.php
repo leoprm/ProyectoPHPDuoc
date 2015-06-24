@@ -1,149 +1,101 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Proyecto Duoc">
-        <meta name="author" content="Los 3 Fulanos">
+<?php
+    /*
+    |--------------------------------------------------------------------------
+    | Archivos y configuracion de Pagina
+    |--------------------------------------------------------------------------
+    |
+    | Aqui se hace "required" de archivos minimos de funcionamiento para armar
+    | cada pagina, mas declaraion de variables para el header, menu, sidebar.
+    |
+    */
+    $titulo = "Inicio";
 
-        <title>Un Lindo proyecto</title>
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/dist/css/custom.css" rel="stylesheet">
+    require __DIR__.'/./config/env.php';
+    require __DIR__.'/./templates/sitio/header.php';
+    require __DIR__.'/./clases/Producto.php';
 
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-<body>    
-    <nav class="navbar navbar-fixed-top navbar-default">
-        <div class="container">
-                <button type="button" class="btn btn-menu" data-toggle="offcanvas">
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                </button>
-                <a href="index.php">
-                    <img src="http://placephant.com/180/75" width="">
-                </a>
-        </div>
-    </nav>
+    $modelo = new Producto();
+    $productos = $modelo->obtenerTodos();
 
-    <div class="container">
-        <div class="row row-offcanvas row-offcanvas-left">
-            <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar">
-                <div class="list-group">
-                    <a href="index.php" class="list-group-item"><span class="glyphicon glyphicon-home"></span> Home</a>
-                    <a href="productos.php" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span> Productos</a>
-                    <a href="contacto.php" class="list-group-item"><span class="glyphicon glyphicon-globe"></span> Contacto</a>
-                </div>
-            </div><!--/.sidebar-offcanvas-->
-            <div class="col-xs-12 col-sm-offset-1 col-sm-10">
-                <div class="jumbotron">
-                    <h1>¡Este es un Proyecto lindo!</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quisquam fugiat eaque iste explicabo laudantium laborum beatae at culpa doloremque? Deleniti accusantium aliquid necessitatibus, officia repudiandae totam enim at? Assumenda!
+    /*
+    |--------------------------------------------------------------------------
+    | Contenido del Sitio
+    |--------------------------------------------------------------------------
+    |
+    | Aqui se agrega toda la funcionalidad de la pagina, especialmente deberia 
+    | haber solo HTML cn algunos tags para PHP para acceder a variables.
+    |
+    */
+?>
+
+<div class="row row-offcanvas row-offcanvas-left">
+    <?php require __DIR__.'/./templates/sitio/menu.php'; ?>
+    <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+        <!-- Portada del Sitio -->
+        <div class="jumbotron clearfix">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>¡Ambienta tu espacio!</h1>
+                    <p class="pull-left">
+                        Puedes decorar cualquier rincón de tu casa de manera sencilla y económica. Olvídate del clásico cuadro y dale a tu entorno un toque original y muy moderno.
                     </p>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="page-header">
-                            <h1><span class="glyphicon glyphicon-shopping-cart"></span> Productos</h1>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/200x200" class="img-circle">
-                            <div class="caption">
-                                <h3>Un Producto</h3>
-                                <p>Su mini descripcion, algo simple y lol</p>
-                                <div class="clearfix">
-                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/200x200" class="img-circle">
-                            <div class="caption">
-                                <h3>Un Producto</h3>
-                                <p>Su mini descripcion, algo simple y lol</p>
-                                <div class="clearfix">
-                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/200x200" class="img-circle">
-                            <div class="caption">
-                                <h3>Un Producto</h3>
-                                <p>Su mini descripcion, algo simple y lol</p>
-                                <div class="clearfix">
-                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/200x200" class="img-circle">
-                            <div class="caption">
-                                <h3>Un Producto</h3>
-                                <p>Su mini descripcion, algo simple y lol</p>
-                                <div class="clearfix">
-                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/200x200" class="img-circle">
-                            <div class="caption">
-                                <h3>Un Producto</h3>
-                                <p>Su mini descripcion, algo simple y lol</p>
-                                <div class="clearfix">
-                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/200x200" class="img-circle">
-                            <div class="caption">
-                                <h3>Un Producto</h3>
-                                <p>Su mini descripcion, algo simple y lol</p>
-                                <div class="clearfix">
-                                    <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <a href="productos.php" class="btn btn-primary">Ver todos los Productos</a>
-                    </div>
+                <div class="col-md-3">
+                    <img src="<?= ROOT_URL.'assets/dist/img/presentacion.jpg' ?>" class="img-circle imagen-presentacion">
                 </div>
             </div>
         </div>
-        <hr>
-        <footer>
-            <p class="text-right">&copy; Un lindo Proyecto - 2015</p>
-        </footer>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/assets/bootstrap//js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="offcanvas"]').click(function () {
-                $('.row-offcanvas').toggleClass('active')
-            });
-        });
-    </script>
-</body>
-</html>
+        <!-- Despliege de Productos -->
+        <?php if($productos->rowcount() > 0){ ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h1><span class="glyphicon glyphicon-shopping-cart"></span> Productos</h1>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/200x200" class="img-circle">
+                        <div class="caption">
+                            <h3>Un Producto</h3>
+                            <p>Su mini descripcion, algo simple y lol</p>
+                            <div class="clearfix">
+                                <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="<?= ROOT_URL ?>productos.php" class="btn btn-primary">Ver todos los Productos</a>
+                </div>
+            </div>
+        <?php }else{ ?>
+            <div class="row">
+                <div class="alert alert-warning" role="alert">
+                    <strong>D'oh</strong>
+                    <br>
+                    No existen productos para deplegar :c
+                </div>
+                <div class="col-md-12 text-center">
+                    Pero siempre puedes <a href="<?= ROOT_URL ?>contacto.php">contactarnos</a> por si tienes dudas.
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div>        
+
+<?php
+    /*
+    |--------------------------------------------------------------------------
+    | Footer
+    |--------------------------------------------------------------------------
+    |
+    | Solo se hace un require del footer de la pagina de admin.
+    |
+    */
+    require __DIR__.'/./templates/sitio/footer.php';
+?>

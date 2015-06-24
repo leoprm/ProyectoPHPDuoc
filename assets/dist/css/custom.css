@@ -107,3 +107,9 @@ footer {
         left: 25%;
     }
 }
+
+.imagen-presentacion{
+    width: 250px;
+    height: 250px;
+    float: right;
+}

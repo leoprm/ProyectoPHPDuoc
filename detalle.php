@@ -1,34 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Proyecto Duoc">
-        <meta name="author" content="Los 3 Fulanos">
+<?php
+    /*
+    |--------------------------------------------------------------------------
+    | Archivos y configuracion de Pagina
+    |--------------------------------------------------------------------------
+    |
+    | Aqui se hace "required" de archivos minimos de funcionamiento para armar
+    | cada pagina, mas declaraion de variables para el header, menu, sidebar.
+    |
+    */
+    $titulo = "Detalle Producto";
 
-        <title>Un Lindo proyecto</title>
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/dist/css/custom.css" rel="stylesheet">
+    require __DIR__.'/./config/env.php';
+    require __DIR__.'/./templates/sitio/header.php';
+    require __DIR__.'/./clases/Producto.php';
 
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-<body>    
-    <nav class="navbar navbar-fixed-top navbar-default">
-        <div class="container">
-                <button type="button" class="btn btn-menu" data-toggle="offcanvas">
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                </button>
-                <a href="index.php">
-                    <img src="http://placephant.com/180/75" width="">
-                </a>
-        </div>
-    </nav>
+    /*
+    |--------------------------------------------------------------------------
+    | Contenido del Sitio
+    |--------------------------------------------------------------------------
+    |
+    | Aqui se agrega toda la funcionalidad de la pagina, especialmente deberia 
+    | haber solo HTML cn algunos tags para PHP para acceder a variables.
+    |
+    */
+?>
 
-    <div class="container">
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar">
                 <div class="list-group">
@@ -122,20 +118,15 @@
                 </div>
             </div>
         </div>
-        <hr>
-        <footer>
-            <p class="text-right">&copy; Un lindo Proyecto - 2015</p>
-        </footer>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/assets/bootstrap//js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="offcanvas"]').click(function () {
-                $('.row-offcanvas').toggleClass('active')
-            });
-        });
-    </script>
-</body>
-</html>
+<?php
+    /*
+    |--------------------------------------------------------------------------
+    | Footer
+    |--------------------------------------------------------------------------
+    |
+    | Solo se hace un require del footer de la pagina de admin.
+    |
+    */
+    require __DIR__.'/./templates/sitio/footer.php';
+?>   

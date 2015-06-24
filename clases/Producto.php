@@ -10,8 +10,9 @@ class Producto{
 	private $sdimal;
 	private $imagen;
 	private $cantidad;
+	private $db;
 
-	function __construct($nom,$descr,$sprec,$diman,$dimal,$dimg,$cant){
+	function __construct($nom = '',$descr = '',$sprec = 0,$diman = 0,$dimal = 0,$dimg = '',$cant = 0){
 		$this->nombreprod=$nom;
 		$this->sdescripcion=$descr;	
 		$this->sprecio=$sprec;	
@@ -20,7 +21,7 @@ class Producto{
 		$this->imagen=$dimg;
 		$this->cantidad=$cant;
 
-		$this->conexion = new DB();
+		$this->db = new DB();
 	}
 
 	function AgregarProducto($categoria,$color,$usuario){
@@ -97,6 +98,16 @@ class Producto{
 	
 		if ($querysel->rowcount()==1)return true; else return false;
 	
+	}
+
+	public function obtenerTodos($limit = null){
+		$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
+		$sql = "SELECT * FROM PRODUCTO ORDER BY RAND()".$limitText;
+
+		$query = $this->db->conexion->prepare($sql);		
+		$query->execute();
+		
+		return $query;
 	}
 }
 ?>	
