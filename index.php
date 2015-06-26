@@ -15,7 +15,7 @@
     require __DIR__.'/./clases/Producto.php';
 
     $modelo = new Producto();
-    $productos = $modelo->obtenerTodos();
+    $productos = $modelo->obtenerTodos(6);
 
     /*
     |--------------------------------------------------------------------------

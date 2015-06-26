@@ -32,58 +32,70 @@
     <?php require __DIR__.'/./templates/sitio/menu.php'; ?>
     <div class="col-xs-12 col-sm-offset-1 col-sm-10">
 
-        <div class="page-header">
-            <h1><span class="glyphicon glyphicon-phone"></span> Contacto</h1>
-            <p>
-                De antemano muchas gracias por enviarnos tus comentarios o quejas, todo por parte de <cite>Mira en tu Interior</cite> es bien recibido.
-            </p>
-        </div>
+        <?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
+            <div class="alert alert-info" role="alert">
+                <strong>Hey!</strong>
+                <br>
+                Muchas gracias por el interes, responderemos a la brebedad tus comentarios realizados por este medio.
+                <?php unset($_SESSION['success_contact']); ?>
+            </div>
+        <?php }else{ ?>
+            <div class="page-header">
+                <h1><span class="glyphicon glyphicon-phone"></span> Contacto</h1>
+                <p>
+                    De antemano muchas gracias por enviarnos tus comentarios o quejas, todo por parte de <cite>Mira en tu Interior</cite> es bien recibido.
+                </p>
+            </div>
 
-        <div class="alert alert-info" role="alert">
-            <strong>Hey!</strong>
-            <br>
-            Muchas gracias por el interes, responderemos a la brebedad tus comentarios realizados por este medio.
-        </div>
+            <?php if( array_key_exists('error_tmp', $_SESSION) ){ ?>
+                <div class="alert alert-danger" role="alert">
+                    <strong><span class="glyphicon glyphicon-exclamation-sign"></span>  D'oh!</strong>
+                    <br>
+                    <?= $_SESSION['error_tmp'] ?>
+                    <?php unset($_SESSION['error_tmp']); ?>
+                </div>
+            <?php } ?>
 
-        <form class="form-horizontal">
-            <fieldset>
-                <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Nombre</label>
-                    <div class="col-lg-10">
-                        <input class="form-control" id="inputNombre" placeholder="Nombre" type="text">
+            <form class="form-horizontal" method="post" action="<?= ROOT_URL ?>save.php">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Nombre</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputNombre" placeholder="Nombre" type="text" name="nombre">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                        <input class="form-control" id="inputEmail" placeholder="Email" type="email">
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputEmail" placeholder="Email" type="email" name="email">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Comentario</label>
-                    <div class="col-lg-10">
-                        <textarea class="form-control" rows="3" id="textArea"></textarea>
+                    <div class="form-group">
+                        <label for="textArea" class="col-lg-2 control-label">Comentario</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" rows="3" id="textArea" placeholder="¿Qué nos quieres contar?" name="comentario"></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Asunto</label>
-                    <div class="col-lg-10">
-                        <select class="form-control" id="select">
-                            <option value="Comprar">Comprar</option>
-                            <option value="Reclamos">Reclamos</option>
-                            <option value="Sugerencias">Sugerencias</option>
-                            <option value="ContactoEmpresarial">Contacto Empresarial</option>
-                        </select>
-                        <br>
+                    <div class="form-group">
+                        <label for="select" class="col-lg-2 control-label">Asunto</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" id="select" name="asunto">
+                                <option value="Comprar">Comprar</option>
+                                <option value="Reclamos">Reclamos</option>
+                                <option value="Sugerencias">Sugerencias</option>
+                                <option value="ContactoEmpresarial">Contacto Empresarial</option>
+                            </select>
+                            <br>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2 text-right">
-                        <button type="submit" class="btn btn-success">Enviar</button>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2 text-right">
+                            <button type="submit" class="btn btn-success">Enviar  <span class="glyphicon glyphicon-send"></span></button>
+                        </div>
                     </div>
-                </div>
-            </fieldset>
-        </form>
+                </fieldset>
+            </form>
+        <?php } ?>
 
         <!-- Despliege de Productos -->
         <?php if($productos->rowcount() > 0){ ?>

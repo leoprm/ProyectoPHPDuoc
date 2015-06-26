@@ -14,6 +14,9 @@
     require __DIR__.'/./templates/sitio/header.php';
     require __DIR__.'/./clases/Producto.php';
 
+    //Verificamos si existe una categoria que cargar
+    $categoria = ( isset($_GET['categoria']) && $_GET['categoria'] != "" ) ? $_GET['categoria'] : null;
+
     /*
     |--------------------------------------------------------------------------
     | Contenido del Sitio

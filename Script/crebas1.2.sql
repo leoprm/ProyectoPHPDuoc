@@ -54,6 +54,7 @@ create table CONTACTO
    NOMBRECONTACTO       varchar(50) not null,
    EMAILCONTAC          varchar(60) not null,
    MENSAJE              varchar(200) not null,
+   ASUNTO               varchar(100) not null,
    FECHAENVIO           datetime not null,
    primary key (IDCONTACTO)
 );
