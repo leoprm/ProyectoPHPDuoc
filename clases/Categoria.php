@@ -1,4 +1,14 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| Clase conexion a tabla 
+|--------------------------------------------------------------------------
+|
+| Clase que linkea la tabla CATEGORIA de la base de datos
+|
+*/
+
+
 require __DIR__.'/../libs/db/db.php';
 
 class Categoria
@@ -6,9 +16,9 @@ class Categoria
 	private $snombre;
 	private $sdescripcion;
 	private $simagen;
-	private $conexion;
+	private $db;
 
-	function __construct($snom = '',$sdes = '',$simg = ''){
+	function __construct($snom=null,$sdes=null,$simg=null){
 		$this->snombre=$snom;
 		$this->sdescripcion=$sdes;
 		$this->simagen=$simg;
@@ -27,7 +37,7 @@ class Categoria
 		}
 		/*Preparación SQL*/
 				try {
-					$this->db->conexion->prepare($sqlins);
+					$query = $this->db->conexion->prepare($sqlins);
 				}
 				catch( PDOException $Exception ) {
 					echo "Clase Categoria:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
@@ -36,12 +46,12 @@ class Categoria
 		
 		/*Asignación de parametros utilizando bindparam*/
 		
-		$queryins->bindParam(':nom',$this->snombre);
-		$queryins->bindParam(':desc',$this->sdescripcion);
-		$queryins->bindParam(':imag',$this->simg);
+		$query->bindParam(':nom',$this->snombre);
+		$query->bindParam(':desc',$this->sdescripcion);
+		$query->bindParam(':imag',$this->simg);
 		
 		try {
-			$queryins->execute();
+			$query->execute();
 		}
 		catch( PDOException $Exception ) {
 			echo "Clase Categoria:ERROR:Ejecución Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
@@ -67,14 +77,22 @@ class Categoria
 	
 	}
 
-	public function obtenerTodos($limit = null){
-		$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
-		$sql = "SELECT * FROM CATEGORIA".$limitText;
 
-		$query = $this->db->conexion->prepare($sql);		
-		$query->execute();
+	function ObtenerLista(){
+		/*Definición del query que permitira obtener la lista de categorias*/
+		$sqlsel="select * from CATEGORIA";
 		
-		return $query;
+		/*Preparación SQL*/
+		$querylis = $this->db->conexion->prepare($sqlsel);
+		$querylis->execute();
+		
+		return $querylis;
+
+		//EJEMPLO DE FOREACH
+		// $productos es lo mismo que $querylis
+		//foreach ($productos->fetch() as $producto) {
+		  //  $producto['nombre'];
+		//}		
 	}
 
 	function eliminaCategoria($idcategoria){
