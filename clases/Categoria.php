@@ -94,5 +94,20 @@ class Categoria
 		  //  $producto['nombre'];
 		//}		
 	}
+
+	function eliminaCategoria($idcategoria){
+
+		/*Definición del query que permitira eliminar un registro*/
+		$sqldel="delete from categoria where idcategori=:id";
+
+		/*Preparación SQL*/
+		$querydel=$this->db->conexion->prepare($sqldel);
+
+		$querydel->bindParam(':id',$idcategoria);
+
+		$valaux=$querydel->execute();
+
+		return $valaux;
+	}
 }
  ?>

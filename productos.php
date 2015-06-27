@@ -18,7 +18,7 @@
     $modelo = new Categoria();
     $modeloProducto = new Producto();
     $categoria = ( isset($_GET['categoria']) && $_GET['categoria'] != "" ) ? $modelo->buscarPorID($_GET['categoria']) : null;
-    $categorias = $modelo->obtenerTodos();
+    $categorias = $modelo->ObtenerLista();
 
     /*
     |--------------------------------------------------------------------------

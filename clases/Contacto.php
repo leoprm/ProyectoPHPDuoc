@@ -33,5 +33,20 @@ class Contacto{
 		
 		return $query->execute();
 	}	
+
+	function eliminaContacto($idcontacto){
+
+		/*Definición del query que permitira eliminar un registro*/
+		$sqldel="delete from contacto where idcontacto=:id";
+
+		/*Preparación SQL*/
+		$querydel=$this->db->conexion->prepare($sqldel);
+
+		$querydel->bindParam(':id',$idcontacto);
+
+		$valaux=$querydel->execute();
+
+		return $valaux;
+	}
 }
 ?>

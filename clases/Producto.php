@@ -24,7 +24,7 @@ class Producto{
 		$this->db = new DB();
 	}
 
-	function AgregarProducto(){
+	function AgregarProducto($categoria,$color,$usuario){
 		/*Definición del query que permitira ingresar un nuevo registro*/
 		$sqlins="insert into producto(idcategori,idcolor,idusuario,nombreprod,descripprod,precio,dimancho,dimalto,imagenprod,cantidad)
 		values(:cate,:colr,:usr,:nomprod,:desc,:prec,:danc,:dalt,:img,:cant)";
@@ -34,13 +34,13 @@ class Producto{
 			return false;
 		}
 		/*Preparación SQL*/
-				try {
-					$this->conexion->prepare($sqlins);
-				}
-				catch( PDOException $Exception ) {
-					echo "Clase Producto:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
-					return false;
-				}
+		try {
+			$this->db->conexion->prepare($sqlins);
+		}
+		catch( PDOException $Exception ) {
+			echo "Clase Producto:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+			return false;
+		}
 		
 		/*Asignación de parametros utilizando bindparam*/
 		$queryins->bindParam(':cate',$categoria);
@@ -65,7 +65,7 @@ class Producto{
 	}
 
 
-	public function porCategoria($categoria,$limit = null){
+	function porCategoria($categoria,$limit = null){
 		/*Definición del query que permitira buscar un registrocon filtro*/
 		$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
 		$sql = "SELECT * FROM PRODUCTO WHERE idcategori=:cat".$limitText;;
@@ -81,20 +81,20 @@ class Producto{
 		/*Definición del query que permitira ingresar un nuevo registro*/
 		$sqlsel="select nombreprod from producto
 		where nombreprod=:prod";
-	
+
 		/*Preparación SQL*/
-		$querysel=$db->prepare($sqlsel);
-	
+		$querysel=$this->db->conexion->prepare($sqlsel);
+
 		/*Asignación de parametros utilizando bindparam*/
 		$querysel->bindParam(':prod',$this->nombreprod);
-	
+
 		$datos=$querysel->execute();
-	
+
 		if ($querysel->rowcount()==1)return true; else return false;
-	
+
 	}
 
-	public function obtenerTodos($limit = null){
+	function obtenerTodos($limit = null){
 		$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
 		$sql = "SELECT * FROM PRODUCTO ORDER BY RAND()".$limitText;
 
@@ -103,5 +103,23 @@ class Producto{
 		
 		return $query;
 	}
+
+	function eliminaProducto($idproducto){
+
+		/*Definición del query que permitira eliminar un registro*/
+		$sqldel="delete from producto where idproducto=:id";
+
+		/*Preparación SQL*/
+		$querydel=$this->db->conexion->prepare($sqldel);
+
+		$querydel->bindParam(':id',$idproducto);
+
+		$valaux=$querydel->execute();
+
+		return $valaux;
+	}
+
+
+	
 }
 ?>	
