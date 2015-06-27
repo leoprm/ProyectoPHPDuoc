@@ -64,6 +64,7 @@
 		  			                <th>Alto</th>
 		  			                <th>imagen</th>
 		  			                <th>cantidad</th>
+		  			                <th>Acciones</th>
 		  			            </tr>
 		  			        </thead>		  			 
 		  			        <tfoot>
@@ -75,9 +76,10 @@
 		  			                <th>Alto</th>
 		  			                <th>imagen</th>
 		  			                <th>cantidad</th>
+		  			                <th>Acciones</th>
 		  			            </tr>
 		  			        </tfoot>
-<?php foreach ($listaProducto as $row){ ?>	  			 
+							<?php foreach ($listaProducto as $row){ ?>	  			 
 		  			        <tbody>
 		  			            <tr>
 		  			                <td><?=$row['NOMBREPROD']?></td>

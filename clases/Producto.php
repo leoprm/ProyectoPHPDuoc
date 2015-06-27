@@ -130,7 +130,7 @@ class Producto{
 			echo "Clase Producto:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
 			return false;
 		}
-		
+
 		/*Asignación de parametros utilizando bindparam*/
 		$queryins->bindParam(':cate',$categoria);
 		$queryins->bindParam(':colr',$color);
@@ -155,6 +155,7 @@ class Producto{
 	
 		return $valaux;
 	}
+	
 	
 }
 ?>	

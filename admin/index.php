@@ -15,6 +15,10 @@
 	require __DIR__.'/./templates/header.php';
 	require __DIR__.'/./templates/menu.php';
 	require __DIR__.'/./templates/sidebar.php';
+	require __DIR__.'/../clases/Producto.php';
+
+	$modeloProducto = new Producto();
+	$listaProducto = $modeloProducto->obtenerTodos();
 
 	/*
 	|--------------------------------------------------------------------------
@@ -43,16 +47,7 @@
 	<section class="content">
 		<!-- Indicadores -->
 		<div class="row">
-			<div class="col-md-3 col-sm-6 col-xs-12">
-			  	<div class="info-box">
-			    	<span class="info-box-icon bg-aqua"><i class="fa fa-user-secret "></i></span>
-			    	<div class="info-box-content">
-			      		<span class="info-box-text">Administradores</span>
-			      		<span class="info-box-number">5</span>
-			    	</div>
-			  	</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 			  	<div class="info-box">
 			    	<span class="info-box-icon bg-red"><i class="fa fa-tags"></i></span>
 			    	<div class="info-box-content">
@@ -65,16 +60,16 @@
 			<!-- fix for small devices only -->
 			<div class="clearfix visible-sm-block"></div>
 
-			<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 			  	<div class="info-box">
 			    	<span class="info-box-icon bg-green"><i class="fa fa-shopping-cart"></i></span>
 			    	<div class="info-box-content">
 			      		<span class="info-box-text">Productos</span>
-			      		<span class="info-box-number">254</span>
+			      		<span class="info-box-number"><?=$listaProducto->rowcount()?></span>
 			    	</div>
 			  	</div>
 			</div>
-			<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 			  	<div class="info-box">
 			    	<span class="info-box-icon bg-yellow"><i class="fa fa-group"></i></span>
 			    	<div class="info-box-content">
@@ -86,39 +81,7 @@
 		</div>
 
 		<!-- Otros Contenidos -->
-		<div class="row">
-			<div class="col-md-6">
-				<div class="box box-solid">
-					<div class="box-header with-border">
-			  			<h3 class="box-title">Algún grafico?</h3>
-			  			<div class="box-tools pull-right">
-			    			<button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
-			  			</div>
-					</div>
-					<div class="box-body">
-			  			Aqui desplegamos infoe
-					</div>
-					<div class="box-footer text-right">
-			  			<button class="btn btn-default">Esto tiene botones?</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<div class="box box-solid">
-					<div class="box-header with-border">
-			  			<h3 class="box-title">Otro Contenido</h3>
-			  			<div class="box-tools pull-right">
-			    			<button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
-			  			</div>
-					</div>
-					<div class="box-body">
-			  			Contactos? Producos?
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+		</section>
 </div>
 
 <?php
