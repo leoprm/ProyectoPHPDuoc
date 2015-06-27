@@ -13,9 +13,12 @@
     require __DIR__.'/./config/env.php';
     require __DIR__.'/./templates/sitio/header.php';
     require __DIR__.'/./clases/Producto.php';
+    require __DIR__.'/./clases/Categoria.php';
 
-    //Verificamos si existe una categoria que cargar
-    $categoria = ( isset($_GET['categoria']) && $_GET['categoria'] != "" ) ? $_GET['categoria'] : null;
+    $modelo = new Categoria();
+    $modeloProducto = new Producto();
+    $categoria = ( isset($_GET['categoria']) && $_GET['categoria'] != "" ) ? $modelo->buscarPorID($_GET['categoria']) : null;
+    $categorias = $modelo->obtenerTodos();
 
     /*
     |--------------------------------------------------------------------------
@@ -29,192 +32,91 @@
 ?>
 
 <div class="row row-offcanvas row-offcanvas-left">
-    <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar">
-        <div class="list-group">
-            <a href="index.php" class="list-group-item"><span class="glyphicon glyphicon-home"></span> Home</a>
-            <a href="productos.php" class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span> Productos</a>
-            <a href="contacto.php" class="list-group-item"><span class="glyphicon glyphicon-globe"></span> Contacto</a>
-        </div>
-    </div>
+    <?php require __DIR__.'/./templates/sitio/menu.php'; ?>
     <div class="col-xs-12 col-sm-offset-1 col-sm-10">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-header">
-                    <h1><span class="glyphicon glyphicon-bookmark"></span> Categoria 1</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, sed, esse delectus omnis eum inventore sunt consequatur explicabo, commodi ullam hic atque quo eos non dolores fuga accusamus. Aspernatur, itaque.
-                    </p>
+        <?php if( is_null($categoria) ){ ?>
+            <?php if( $categorias->rowcount() > 0 ){ ?>
+                <?php foreach ($categorias as $row){ ?>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header">
+                                <h1><span class="glyphicon glyphicon-bookmark"></span> <?= $row['NOMCATEGOR'] ?></h1>
+                            </div>
+                        </div>
+
+                        <?php $productos = $modeloProducto->porCategoria( $row['IDCATEGORI'],6 ); ?>
+                        <?php if( $productos->rowcount() > 0 ){ ?>
+                            <?php foreach ($productos as $producto){ ?>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="http://placehold.it/200x200" class="img-circle">
+                                        <div class="caption">
+                                            <h3><?= $producto['NOMBREPROD'] ?></h3>
+                                            <p>Su mini descripcion, algo simple y lol</p>
+                                            <div class="clearfix">
+                                                <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['CODPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <div class="col-md-12 text-center">
+                                <a href="<?= ROOT_URL ?>productos.php?categoria=<?= $row['IDCATEGORI'] ?>" class="btn btn-primary"> Ver todos</a>
+                            </div>
+                        <?php }else{ ?>
+                            <div class="col-md-12">
+                                <div class="alert alert-warning" role="alert">
+                                    <strong>D'oh</strong>
+                                    <br>
+                                    No existen productos para deplegar :c
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+            <?php }else{ ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h1><span class="glyphicon glyphicon-shopping-cart"></span> Productos</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="alert alert-warning" role="alert">
+                            <strong>D'oh</strong>
+                            <br>
+                            No existen productos para deplegar :c
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        Pero siempre puedes <a href="<?= ROOT_URL ?>contacto.php">contactarnos</a> por si tienes dudas.
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+            <?php } ?>
+        <?php }else{ ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h1><span class="glyphicon glyphicon-bookmark"></span> Categoria 1</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, sed, esse delectus omnis eum inventore sunt consequatur explicabo, commodi ullam hic atque quo eos non dolores fuga accusamus. Aspernatur, itaque.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/200x200" class="img-circle">
+                        <div class="caption">
+                            <h3>Un Producto</h3>
+                            <p>Su mini descripcion, algo simple y lol</p>
+                            <div class="clearfix">
+                                <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/200x200" class="img-circle">
-                    <div class="caption">
-                        <h3>Un Producto</h3>
-                        <p>Su mini descripcion, algo simple y lol</p>
-                        <div class="clearfix">
-                            <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </div>
 
