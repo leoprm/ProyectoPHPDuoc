@@ -1,1 +1,5 @@
 config/env.php
+assets/dist/img/uploads/**.jpg
+assets/dist/img/uploads/**.png
+assets/dist/img/uploads/**.jpeg
+assets/dist/img/uploads/**.gif
