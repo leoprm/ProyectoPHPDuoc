@@ -54,7 +54,7 @@ class Usuario{
 		where emailuser=:usr";
 	
 		/*Preparación SQL*/
-		$this->conexion->prepare($sqlsel);
+		$this->db->conexion->prepare($sqlsel);
 	
 		/*Asignación de parametros utilizando bindparam*/
 		$querysel->bindParam(':usr',$this->email);
