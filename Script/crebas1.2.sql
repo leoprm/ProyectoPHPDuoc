@@ -102,3 +102,8 @@ alter table PRODUCTO add constraint FK_PERTENECE foreign key (IDCATEGORI)
 alter table PRODUCTO add constraint FK_TIENE foreign key (IDCOLOR)
       references COLOR (IDCOLOR) on delete cascade on update cascade;
 
+/*Agregamos un usuario de prueba*/
+INSERT INTO `miraentuinterior`.`USUARIO` (`IDUSUARIO`, `EMAILUSER`, `USERNAME`, `PASSWORD`, `NOMBREUSER`, `FECHAINGRESO`, `EDITA`) VALUES (NULL, 'grumpy@cat.cl', 'grumpycat', MD5('123'), 'Grumpy Cat', '2015-06-23 16:43:23', '1');
+
+/*Agregamos un producto de prueba*/
+INSERT INTO `miraentuinterior`.`CATEGORIA` (`IDCATEGORI`,`NOMCATEGOR`, `DESCRIPCATEGO`, `IMAGENCAT`) VALUES (NULL, 'Abstracto', 'Diseños abstractos que...', 'algo.jpg');
