@@ -120,5 +120,46 @@ if( !in_array('Producto', get_declared_classes()) ){
 			return $valaux;
 		}
 	}
+<<<<<<< HEAD
+=======
+
+    function ActualizaDatos($idproducto){
+		/*Definicion del query que permitira actualizar los datos*/
+		$sqlupd="update producto set idcategori=:,idcolor,idusuario,nombreprod,descripprod,precio,dimancho,dimalto,imagenprod,cantidad pwdusuario=:pwd	where idacceso=:id";
+		
+		try {
+			$this->db->conexion->prepare($sqlins);
+		}
+		catch( PDOException $Exception ) {
+			echo "Clase Producto:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+			return false;
+		}
+		
+		/*Asignación de parametros utilizando bindparam*/
+		$queryins->bindParam(':cate',$categoria);
+		$queryins->bindParam(':colr',$color);
+		$queryins->bindParam(':usr',$usuario);
+		$queryins->bindParam(':nomprod',$this->nombreprod);
+		$queryins->bindParam(':desc',$this->sdescripcion);
+		$queryins->bindParam(':prec',$this->sprecio);
+		$queryins->bindParam(':danc',$this->sdimanc);
+		$queryins->bindParam(':dalt',$this->sdimat);
+		$queryins->bindParam(':img',$this->dimal);
+		$queryins->bindParam(':cant',$this->sclave);
+
+		/*Preparaci�n SQL*/
+		$querysel=$db->prepare($sqlupd);
+	
+		/*Asignaci�n de parametros utilizando bindparam*/
+		$querysel->bindParam(':pwd',md5($snewpwd));
+		$querysel->bindParam(':id',$this->nidacceso);
+		
+
+		$valaux=$querysel->execute();
+	
+		return $valaux;
+	}
+	
+>>>>>>> 0e0b7defb73ceb52b91cdbbc1341c77c8c181260
 }
 ?>	
