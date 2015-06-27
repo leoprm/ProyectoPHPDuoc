@@ -8,9 +8,9 @@ class Categoria
 	private $simagen;
 	private $conexion;
 
-	function __construct($snom,$sdes,$simg){
+	function __construct($snom = '',$sdes = '',$simg = ''){
 		$this->snombre=$snom;
-		$this->sdescripcion=$des;
+		$this->sdescripcion=$sdes;
 		$this->simagen=$simg;
 
 		$this->db = new DB();
@@ -65,6 +65,16 @@ class Categoria
 	
 		if ($querysel->rowcount()==1)return true; else return false;
 	
+	}
+
+	public function obtenerTodos($limit = null){
+		$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
+		$sql = "SELECT * FROM CATEGORIA".$limitText;
+
+		$query = $this->db->conexion->prepare($sql);		
+		$query->execute();
+		
+		return $query;
 	}
 }
  ?>

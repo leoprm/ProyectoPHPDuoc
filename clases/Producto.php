@@ -65,22 +65,16 @@ class Producto{
 	}
 
 
-	function ObtenerPorCategoria($categoria){
+	public function porCategoria($categoria,$limit = null){
 		/*Definición del query que permitira buscar un registrocon filtro*/
-		$sqlsel="select * from producto
-		where idcategori=:cat ";
+		$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
+		$sql = "SELECT * FROM PRODUCTO WHERE idcategori=:cat".$limitText;;
 		
-		/*Preparación SQL*/
-		$this->conexion->prepare($sqlsel);
+		$query = $this->db->conexion->prepare($sql);
+		$query->bindParam(':cat',$categoria);		
 		
-		/*Asignación de parametros utilizando bindparam*/
-		$querysel->bindParam(':cat',$categoria);
-		
-		
-		$datos=$querysel->execute();
-		
-		if ($querysel->rowcount()==1)return $querysel; else return false;
-		
+		$query->execute();		
+		return $query;		
 	}
 
 	function VerificaProducto(){
