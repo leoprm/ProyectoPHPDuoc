@@ -28,7 +28,6 @@
 	*/
 	$cat = new Categoria();
 	$lista = $cat->ObtenerLista();
-	$lista = $lista->setFetchMode(PDO::FETCH_ASSOC); 
 ?>
 
 <div class="content-wrapper">
@@ -58,30 +57,26 @@
 			  			<table id="dataTablesTable" class="table table-striped table-bordered" width="100%">
 		  			        <thead>
 		  			            <tr>
-		  			                <th>Name</th>
-		  			                <th>Position</th>
-		  			                <th>Office</th>
-		  			                <th>Age</th>
-		  			                <th>Start date</th>
-		  			                <th>Salary</th>
+		  			                <th>Nombre</th>
+		  			                <th>Descripción</th>
+		  			                <th>Foto</th>
 		  			            </tr>
 		  			        </thead>
 		  			 
 		  			        <tfoot>
 		  			            <tr>
-		  			                <th>Name</th>
-		  			                <th>Position</th>
-		  			                <th>Office</th>
-		  			                <th>Age</th>
-		  			                <th>Start date</th>
-		  			                <th>Salary</th>
+		  			                <th>Nombre</th>
+		  			                <th>Descripción</th>
+		  			                <th>Foto</th>	
 		  			            </tr>
 		  			        </tfoot>
 
 		  			        <tbody>
-			  			        <?php foreach ($lista->fetchAll() as $k=>$v) { ?>
+			  			        <?php foreach ($lista->fetch() as $cate) { ?>
 			  			            <tr>
-			  			                <td><?$v?></td>
+			  			                <td><?php print($cate['NOMCATEGOR']);?></td>
+			  			                <td><?php print($cate['DESCRIPCATEGO']);?></td>
+			  			                <td><?php print($cate['IMAGENCAT']);?></td>
 			  			            </tr>
 			  			         <?php };?>
 		  			        </tbody>

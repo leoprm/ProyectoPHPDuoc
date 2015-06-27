@@ -84,8 +84,8 @@ class Categoria
 		
 		/*Preparación SQL*/
 		$querylis = $this->db->conexion->prepare($sqlsel);
-		$querylis->execute();
-		
+		$querylis->execute();	
+
 		return $querylis;
 
 		//EJEMPLO DE FOREACH
