@@ -52,7 +52,7 @@
                                         <img src="http://placehold.it/200x200" class="img-circle">
                                         <div class="caption">
                                             <h3><?= $producto['NOMBREPROD'] ?></h3>
-                                            <p>Su mini descripcion, algo simple y lol</p>
+                                            <p><?= $producto['DESCRIPPROD'] ?></p>
                                             <div class="clearfix">
                                                 <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['CODPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
                                             </div>

@@ -13,6 +13,8 @@
     require __DIR__.'/./config/env.php';
     require __DIR__.'/./templates/sitio/header.php';
     require __DIR__.'/./clases/Producto.php';
+    $modeloProducto = new Producto();
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -24,7 +26,10 @@
     |
     */
 ?>
-
+<script>
+    var URLsearch = window.location.search;
+    alert(URLsearch);
+</script>
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar">
                 <div class="list-group">

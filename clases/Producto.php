@@ -77,20 +77,20 @@ class Producto{
 		return $query;		
 	}
 
-	function VerificaProducto(){
-		/*Definición del query que permitira ingresar un nuevo registro*/
-		$sqlsel="select nombreprod from producto
-		where nombreprod=:prod";
+	function TraerProducto($idprod){
+		/*Definición del query que permitira traer un nuevo registro*/
+		$sqlsel="select * from producto
+		where idproducto=:prod";
 
 		/*Preparación SQL*/
 		$querysel=$this->db->conexion->prepare($sqlsel);
 
 		/*Asignación de parametros utilizando bindparam*/
-		$querysel->bindParam(':prod',$this->nombreprod);
+		$querysel->bindParam(':prod',$idprod);
 
-		$datos=$querysel->execute();
+		$querysel->execute();
 
-		if ($querysel->rowcount()==1)return true; else return false;
+		return $querysel;
 
 	}
 
