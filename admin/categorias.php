@@ -72,11 +72,11 @@
 		  			        </tfoot>
 
 		  			        <tbody>
-			  			        <?php foreach ($lista->fetch() as $cate) { ?>
+			  			        <?php foreach ($lista as $cate) { ?>
 			  			            <tr>
-			  			                <td><?php print($cate['NOMCATEGOR']);?></td>
-			  			                <td><?php print($cate['DESCRIPCATEGO']);?></td>
-			  			                <td><?php print($cate['IMAGENCAT']);?></td>
+			  			                <td><?=$cate['NOMCATEGOR']?></td>
+			  			                <td><?=$cate['DESCRIPCATEGO']?></td>
+			  			                <td><?=$cate['IMAGENCAT']?></td>
 			  			            </tr>
 			  			         <?php };?>
 		  			        </tbody>

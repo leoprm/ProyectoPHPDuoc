@@ -28,7 +28,7 @@ class Categoria
 
 	function AgregarCategoria(){
 		/*Definición del query que permitira ingresar un nuevo registro*/
-		$sqlins="insert into categoria(nomcategor, descriptcatego, imagecat)
+		$sqlins="insert into categoria(nomcategor, descripcatego, imagecat)
 		values(:nom,:desc,:imag)";
 		/*Verifica que la categoria no exista*/
 		if ($this->VerificaCategoria()){
