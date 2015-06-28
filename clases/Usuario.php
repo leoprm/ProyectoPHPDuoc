@@ -61,7 +61,7 @@ class Usuario{
 	
 		$datos=$querysel->execute();
 	
-		if ($querysel->rowcount()==1)return true; else return false;
+		if ($querysel->rowcount()==1)return $querysel; else return false;
 	
 	}
 	

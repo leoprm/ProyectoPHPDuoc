@@ -30,13 +30,13 @@ if( !in_array('Producto', get_declared_classes()) ){
 			$sqlins="insert into producto(idcategori,idcolor,idusuario,nombreprod,descripprod,precio,dimancho,dimalto,imagenprod,cantidad)
 			values(:cate,:colr,:usr,:nomprod,:desc,:prec,:danc,:dalt,:img,:cant)";
 			/*Verifica que el producto no exista*/
-			if ($this->VerificaProducto()){
+			if ($this->TraerProducto($this->nombreprod)){
 				echo "El produto $this->nombreprod existe en la base de datos.";
 				return false;
 			}
 			/*Preparación SQL*/
 			try {
-				$this->db->conexion->prepare($sqlins);
+				$queryins=$this->db->conexion->prepare($sqlins);
 			}
 			catch( PDOException $Exception ) {
 				echo "Clase Producto:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
@@ -51,9 +51,9 @@ if( !in_array('Producto', get_declared_classes()) ){
 			$queryins->bindParam(':desc',$this->sdescripcion);
 			$queryins->bindParam(':prec',$this->sprecio);
 			$queryins->bindParam(':danc',$this->sdimanc);
-			$queryins->bindParam(':dalt',$this->sdimat);
-			$queryins->bindParam(':img',$this->dimal);
-			$queryins->bindParam(':cant',$this->sclave);
+			$queryins->bindParam(':dalt',$this->sdimal);
+			$queryins->bindParam(':img',$this->imagen);
+			$queryins->bindParam(':cant',$this->cantidad);
 			
 			try {
 				$queryins->execute();
@@ -78,20 +78,20 @@ if( !in_array('Producto', get_declared_classes()) ){
 			return $query;		
 		}
 
-		function TraerProducto($idprod){
+		function TraerProducto($nombreprod){
 			/*Definición del query que permitira traer un nuevo registro*/
 			$sqlsel="select * from producto
-			where idproducto=:prod";
+			where nombreprod=:prod";
 
 			/*Preparación SQL*/
 			$querysel=$this->db->conexion->prepare($sqlsel);
 
 			/*Asignación de parametros utilizando bindparam*/
-			$querysel->bindParam(':prod',$idprod);
+			$querysel->bindParam(':prod',$nombreprod);
 
 			$querysel->execute();
 
-			return $querysel;
+			if ($querysel->rowcount()==1)return true; else return false;
 
 		}
 
