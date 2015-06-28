@@ -56,7 +56,7 @@
 					</div>
 					<div class="box-body">
 
-						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>/save/agregador-producto.php">
+						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>/save/agregador-producto.php" enctype="multipart/form-data">
 							<fieldset>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Producto</label>
@@ -94,12 +94,16 @@
 										<input class="form-control" id="cantidad" placeholder="Cantidad" type="number" name="cantidad" required="true" min="1" >
 									</div>
 								</div>
+
+
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Color:</label>
 									<div class="col-lg-10"> 
-									<input type="text" class="form-control my-colorpicker1"/>
+									<input type="text" class="form-control my-colorpicker1" name="color" />
 									</div>
 								</div>
+
+
 								<label for="select" class="col-lg-2 control-label">Categoria</label>
 									<div class="col-lg-10">
 										<select class="form-control" id="categoria" name="categoria">

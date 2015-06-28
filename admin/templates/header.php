@@ -15,8 +15,8 @@
     	<link href="<?= ROOT_URL ?>assets/dist/css/custom_admin.css" rel="stylesheet" type="text/css" />
         <!-- Bootstrap Color Picker -->
         <link href="<?= ROOT_URL ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet"/>
-        <script src="<?= ROOT_URL ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
         
+
         <script src="<?= ROOT_URL ?>assets/plugins/datatables/jquery.dataTables.min.css" type="text/javascript"></script>
         <script src="<?= ROOT_URL ?>assets/plugins/datatables/dataTables.bootstrap.css" type="text/javascript"></script>
 
