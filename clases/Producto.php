@@ -30,7 +30,7 @@ if( !in_array('Producto', get_declared_classes()) ){
 			$sqlins="insert into producto(idcategori,idcolor,idusuario,nombreprod,descripprod,precio,dimancho,dimalto,imagenprod,cantidad)
 			values(:cate,:colr,:usr,:nomprod,:desc,:prec,:danc,:dalt,:img,:cant)";
 			/*Verifica que el producto no exista*/
-			if ($this->TraerProducto($this->nombreprod)){
+			if ($this->traerProducto($this->nombreprod)){
 				echo "El produto $this->nombreprod existe en la base de datos.";
 				return false;
 			}
@@ -78,17 +78,11 @@ if( !in_array('Producto', get_declared_classes()) ){
 			return $query;		
 		}
 
-<<<<<<< HEAD
-		function TraerProducto($nombreprod){
+
+		function traerProducto($nombreprod){
 			/*Definición del query que permitira traer un nuevo registro*/
 			$sqlsel="select * from producto
 			where nombreprod=:prod";
-=======
-		function traerProducto($idprod){
-			/*Definición del query que permitira traer un nuevo registro*/
-			$sqlsel="select * from PRODUCTO
-			where CODPROD=:prod";
->>>>>>> f2736d001458dc620f99aff2f035b02c0ac99e72
 
 			/*Preparación SQL*/
 			$querysel=$this->db->conexion->prepare($sqlsel);
@@ -98,11 +92,8 @@ if( !in_array('Producto', get_declared_classes()) ){
 
 			$querysel->execute();
 
-<<<<<<< HEAD
+
 			if ($querysel->rowcount()==1)return true; else return false;
-=======
-			return $querysel->fetch();
->>>>>>> f2736d001458dc620f99aff2f035b02c0ac99e72
 
 		}
 
