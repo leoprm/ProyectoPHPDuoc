@@ -27,7 +27,7 @@
 		$producto = new Producto($nomProducto,$descripcion,$precio,$ancho,$alto,$imagen,$cantidad);
 
 		if($producto->AgregarProducto($categoria,1,$usuario)){
-			
+			$_SESSION['success_contact'] = true;
 			$target_path =ROOT_URL. "assets/dist/img/uploads/";
 			$target_path = $target_path . basename( $_FILES['imagen']['name']);
 			if(move_uploaded_file($_FILES['imagen']['tmp_name'], $target_path)) {
@@ -43,7 +43,5 @@
 else{
 	echo "Todos los campos son obligatorios.";
 }
-/*
 header('Location: ' .ROOT_ADMIN. '/agregar-producto.php');
-*/
 ?>

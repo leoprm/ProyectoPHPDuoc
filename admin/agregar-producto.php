@@ -40,6 +40,14 @@
 			<li class="active"><i class="fa fa-shopping-cart"></i> Prodcutos</li>
 		</ol>
 	</section>
+	  <?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
+            <div class="alert alert-info" role="alert">
+                <strong>Hey!</strong>
+                <br>
+                Se agrego correctamente el producto! 
+                <?php unset($_SESSION['success_contact']); ?>
+            </div>
+    <?php } ?>
 
 	<!-- Contenido -->
 	<section class="content">

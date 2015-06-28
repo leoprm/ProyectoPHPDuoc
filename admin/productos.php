@@ -81,18 +81,30 @@
 		  			                <th>Acciones</th>
 		  			            </tr>
 		  			        </tfoot>
-							<?php foreach ($listaProducto as $row){ ?>	  			 
 		  			        <tbody>
-		  			            <tr>
-		  			            	<td><?=$row['CODPROD']?></td>
-		  			                <td><?=$row['NOMBREPROD']?></td>
-		  			                <td><?=$row['DESCRIPPROD']?></td>
-		  			                <td><?=$row['PRECIO']?></td>
-		  			                <td><?=$row['DIMANCHO']?></td>
-		  			                <td><?=$row['DIMALTO']?></td>
-		  			                <td><?=$row['IMAGENPROD']?></td>
-		  			                <td><?=$row['CANTIDAD']?></td>
-		  			            </tr>
+							<?php foreach ($listaProducto as $row){ ?>	  			 
+							<tr>
+								<td><?=$row['CODPROD']?></td>
+								<td><?=$row['NOMBREPROD']?></td>
+								<td><?=$row['DESCRIPPROD']?></td>
+								<td><?=$row['PRECIO']?></td>
+								<td><?=$row['DIMANCHO']?></td>
+								<td><?=$row['DIMALTO']?></td>
+								<td><?=$row['IMAGENPROD']?></td>
+								<td><?=$row['CANTIDAD']?></td>
+								<td>
+									<div class="form-group">
+										<div class="col-md-2 col-sm-4 col-xs-8" >
+											<button type="submit" class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-trash"></span></button>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-2 col-sm-4 col-xs-8">
+											<button type="submit" class="btn btn-info">Modificar <span class="glyphicon glyphicon-refresh"></span></button>
+										</div>
+									</div>
+								</td>
+							</tr>
 		  			        <?php }  ?>  
 		  			        </tbody>
 		  			    </table>
