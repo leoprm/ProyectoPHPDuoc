@@ -120,6 +120,9 @@ if( !in_array('Producto', get_declared_classes()) ){
 			return $valaux;
 		}
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 980ffbef338f1c300cf7155547b8fc6b72b1ca71
 }
 ?>	
