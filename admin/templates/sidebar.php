@@ -1,4 +1,28 @@
+<?php
+	/*
+	|--------------------------------------------------------------------------
+	| Archivos y configuracion de Pagina
+	|--------------------------------------------------------------------------
+	|
+	| Aqui se hace "required" de archivos minimos de funcionamiento para armar
+	| cada pagina, mas declaraion de variables para el header, menu, sidebar.
+	|
+	*/
+	require __DIR__.'/../../clases/Producto.php';
 
+	$modeloProducto = new Producto();
+	$listaProducto = $modeloProducto->obtenerTodos();
+
+	/*
+	|--------------------------------------------------------------------------
+	| Contenido del Sitio
+	|--------------------------------------------------------------------------
+	|
+	| Aqui se agrega toda la funcionalidad de la pagina, especialmente deberia 
+	| haber solo HTML cn algunos tags para PHP para acceder a variables.
+	|
+	*/
+?>
 <aside class="main-sidebar">
 	<section class="sidebar">
 			<!-- Info Usuario -->
@@ -18,7 +42,7 @@
 			<li class="header">SITIO</li>
 			<li class="treeview">
 				<a href="#">
-				  	<i class="fa fa-shopping-cart"></i> <span>Productos</span> <small class="label pull-right bg-green">254</small>
+				  	<i class="fa fa-shopping-cart"></i> <span>Productos</span> <small class="label pull-right bg-green"><?=$listaProducto->rowcount()?></small>
 				</a>
 				<ul class="treeview-menu">
 				  	<li>
