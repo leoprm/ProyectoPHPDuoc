@@ -78,10 +78,17 @@ if( !in_array('Producto', get_declared_classes()) ){
 			return $query;		
 		}
 
+<<<<<<< HEAD
 		function TraerProducto($nombreprod){
 			/*Definición del query que permitira traer un nuevo registro*/
 			$sqlsel="select * from producto
 			where nombreprod=:prod";
+=======
+		function traerProducto($idprod){
+			/*Definición del query que permitira traer un nuevo registro*/
+			$sqlsel="select * from PRODUCTO
+			where CODPROD=:prod";
+>>>>>>> f2736d001458dc620f99aff2f035b02c0ac99e72
 
 			/*Preparación SQL*/
 			$querysel=$this->db->conexion->prepare($sqlsel);
@@ -91,13 +98,24 @@ if( !in_array('Producto', get_declared_classes()) ){
 
 			$querysel->execute();
 
+<<<<<<< HEAD
 			if ($querysel->rowcount()==1)return true; else return false;
+=======
+			return $querysel->fetch();
+>>>>>>> f2736d001458dc620f99aff2f035b02c0ac99e72
 
 		}
 
-		function obtenerTodos($limit = null){
+		function obtenerTodos($limit = null,$excluir = []){
 			$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
-			$sql = "SELECT * FROM PRODUCTO ORDER BY RAND()".$limitText;
+
+			$excluirText = (count($excluir) > 0) ? ' WHERE CODPROD NOT IN( ' : '';
+			foreach ($excluir as $valor){
+				$excluirText .= ( is_numeric($valor) ) ? addslashes($valor).',' : '';
+			}
+			$excluirText = (count($excluir) > 0 && $excluirText != ' WHERE CODPROD NOT IN( ' ) ? substr($excluirText, 0,-1).')' : '';
+
+			$sql = "SELECT * FROM PRODUCTO ".$excluirText." ORDER BY RAND()".$limitText;
 
 			$query = $this->db->conexion->prepare($sql);		
 			$query->execute();

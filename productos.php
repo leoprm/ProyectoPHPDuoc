@@ -49,10 +49,10 @@
                             <?php foreach ($productos as $producto){ ?>
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="http://placehold.it/200x200" class="img-circle">
+                                        <img src="<?= ROOT_URL ?>assets/dist/img/uploads/<?= $producto['IMAGENPROD'] ?>" class="img-circle img-producto">
                                         <div class="caption">
                                             <h3><?= $producto['NOMBREPROD'] ?></h3>
-                                            <p><?= $producto['DESCRIPPROD'] ?></p>
+                                            <p><?= utf8_encode($producto['DESCRIPPROD']) ?></p>
                                             <div class="clearfix">
                                                 <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['CODPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
                                             </div>
@@ -68,7 +68,7 @@
                                 <div class="alert alert-warning" role="alert">
                                     <strong>D'oh</strong>
                                     <br>
-                                    No existen productos para deplegar :c
+                                    No existen productos para deplegar sobre esta categoría :c
                                 </div>
                             </div>
                         <?php } ?>
@@ -93,27 +93,59 @@
                     </div>
                 </div>
             <?php } ?>
-        <?php }else{ ?>
+        <?php }else if(is_array($categoria) && count($categoria) > 0 ){ ?>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="page-header">
-                        <h1><span class="glyphicon glyphicon-bookmark"></span> Categoria 1</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, sed, esse delectus omnis eum inventore sunt consequatur explicabo, commodi ullam hic atque quo eos non dolores fuga accusamus. Aspernatur, itaque.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/200x200" class="img-circle">
-                        <div class="caption">
-                            <h3>Un Producto</h3>
-                            <p>Su mini descripcion, algo simple y lol</p>
-                            <div class="clearfix">
-                                <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="page-header">
+                                <h1><span class="glyphicon glyphicon-bookmark"></span> <?= $categoria['NOMCATEGOR'] ?></h1>
+                                <p>
+                                    <?= $categoria['DESCRIPCATEGO'] ?>
+                                </p>
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <img src="<?= ROOT_URL.'assets/dist/img/'.$categoria["IMAGENCAT"] ?>" class="img-circle imagen-presentacion">
+                        </div>
                     </div>
+                </div>
+                
+                <?php $productos = $modeloProducto->porCategoria( $categoria['IDCATEGORI'],6 ); ?>
+                <?php if( $productos->rowcount() > 0 ){ ?>
+                    <?php foreach ($productos as $producto){ ?>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="<?= ROOT_URL ?>assets/dist/img/uploads/<?= $producto['IMAGENPROD'] ?>" class="img-circle img-producto">
+                                <div class="caption">
+                                    <h3><?= $producto['NOMBREPROD'] ?></h3>
+                                    <p><?= utf8_encode($producto['DESCRIPPROD']) ?></p>
+                                    <div class="clearfix">
+                                        <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['CODPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <div class="col-md-12 text-center">
+                        <a href="<?= ROOT_URL ?>productos.php" class="btn btn-default"> Volvar a todos los Productos</a>
+                    </div>
+                <?php }else{ ?>
+                    <div class="col-md-12">
+                        <div class="alert alert-warning" role="alert">
+                            <strong>D'oh</strong>
+                            <br>
+                            No existen productos para deplegar sobre esta categoría :c
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php }else{ ?>
+            <div class="col-md-12">
+                <div class="alert alert-warning" role="alert">
+                    <strong>D'oh</strong>
+                    <br>
+                    No existen la categoría solicitada
                 </div>
             </div>
         <?php } ?>

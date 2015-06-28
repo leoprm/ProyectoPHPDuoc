@@ -106,18 +106,20 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://placehold.it/200x200" class="img-circle">
-                        <div class="caption">
-                            <h3>Un Producto</h3>
-                            <p>Su mini descripcion, algo simple y lol</p>
-                            <div class="clearfix">
-                                <a href="detalle-producto.php" class="btn btn-default pull-right">Ver Detalle</a>
+                <?php foreach ($productos as $producto){ ?>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="<?= ROOT_URL ?>assets/dist/img/uploads/<?= $producto['IMAGENPROD'] ?>" class="img-circle img-producto">
+                            <div class="caption">
+                                <h3><?= $producto['NOMBREPROD'] ?></h3>
+                                <p><?= utf8_encode($producto['DESCRIPPROD']) ?></p>
+                                <div class="clearfix">
+                                    <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['CODPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
