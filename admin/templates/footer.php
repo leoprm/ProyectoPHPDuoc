@@ -13,12 +13,15 @@
 	    <script src="<?= ROOT_URL ?>assets/dist/js/app.min.js" type="text/javascript"></script>
 	    <script src="<?= ROOT_URL ?>assets/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 	    <script src="<?= ROOT_URL ?>assets/plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
-
+	    <!-- bootstrap color picker -->
+	    <script src="<?= ROOT_URL ?>assets/plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+        
 	    <script>
 	    	$(document).ready(function() {
 	    		if( $('#dataTablesTable').length ){
 	    	    	$('#dataTablesTable').dataTable();
 	    		}
+	    		$(".my-colorpicker1").colorpicker();	
 	    	} );
 	    </script>
   </body>

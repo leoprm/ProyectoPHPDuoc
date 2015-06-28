@@ -95,9 +95,9 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputEmail" class="col-lg-2 control-label">Color</label>
-									<div class="col-lg-10">
-										<input class="form-control" id="color" type="color" name="color" required="true" >
+									<label for="inputEmail" class="col-lg-2 control-label">Color:</label>
+									<div class="col-lg-10"> 
+									<input type="text" class="form-control my-colorpicker1"/>
 									</div>
 								</div>
 								<label for="select" class="col-lg-2 control-label">Categoria</label>
@@ -135,6 +135,7 @@
 </div>
 
 <?php
+
 	/*
 	|--------------------------------------------------------------------------
 	| Footer
@@ -144,4 +145,5 @@
 	|
 	*/
 	require __DIR__.'/./templates/footer.php';
+
 ?>

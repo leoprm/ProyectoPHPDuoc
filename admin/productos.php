@@ -57,6 +57,7 @@
 			  			<table id="dataTablesTable" class="table table-striped table-bordered" width="100%">
 		  			        <thead>
 		  			            <tr>
+		  			            	<th>#</th>
 		  			                <th>Producto</th>
 		  			                <th>Descripción</th>
 		  			                <th>Precio</th>
@@ -69,6 +70,7 @@
 		  			        </thead>		  			 
 		  			        <tfoot>
 		  			            <tr>
+		  			            	<th>#</th>
 		  			                <th>Producto</th>
 		  			                <th>Descripción</th>
 		  			                <th>Precio</th>
@@ -82,6 +84,7 @@
 							<?php foreach ($listaProducto as $row){ ?>	  			 
 		  			        <tbody>
 		  			            <tr>
+		  			            	<td><?=$row['CODPROD']?></td>
 		  			                <td><?=$row['NOMBREPROD']?></td>
 		  			                <td><?=$row['DESCRIPPROD']?></td>
 		  			                <td><?=$row['PRECIO']?></td>
