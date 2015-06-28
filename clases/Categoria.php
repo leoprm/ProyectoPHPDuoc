@@ -109,5 +109,15 @@ class Categoria
 
 		return $valaux;
 	}
+
+	public function buscarPorID($idCategoria){
+		$sql = "SELECT * FROM CATEGORIA where idcategori=:id";
+		$query = $this->db->conexion->prepare($sql);
+
+		$query->bindParam(':id',$idCategoria);
+		$query->execute();
+
+		return $query->fetch();
+	}
 }
  ?>

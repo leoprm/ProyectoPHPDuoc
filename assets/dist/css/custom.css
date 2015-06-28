@@ -99,11 +99,11 @@ footer {
     .sidebar-offcanvas {
         width: 35%;
     }
-    .row-offcanvas-right.active {
+    .row-offcanvas-right.active{
         right: 25%;
     }
 
-    .row-offcanvas-left.active {
+    .row-offcanvas-left.active{
         left: 25%;
     }
 }
@@ -112,4 +112,9 @@ footer {
     width: 250px;
     height: 250px;
     float: right;
+}
+
+.img-producto{
+    width: 200px;
+    height: 200px;
 }
