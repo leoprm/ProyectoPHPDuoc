@@ -117,17 +117,23 @@ if( !in_array('Producto', get_declared_classes()) ){
 		function eliminaProducto($idproducto){
 
 			/*Definición del query que permitira eliminar un registro*/
-			$sqldel="delete from producto where idproducto=:id";
+			$sqldel="delete from producto where CODPROD=:id";
 
 			/*Preparación SQL*/
 			$querydel=$this->db->conexion->prepare($sqldel);
 
 			$querydel->bindParam(':id',$idproducto);
 
-			$valaux=$querydel->execute();
-
-			return $valaux;
+			try {
+				$querydel->execute();
+			}
+			catch( PDOException $Exception ) {
+				echo "Clase Producto:ERROR:Ejecución Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				return false;
+			}
+			return true;
 		}
+		
 	}
 }
 ?>	

@@ -4,8 +4,7 @@
 	| Save
 	|--------------------------------------------------------------------------
 	|
-	| Este archivo se encarga de guardar un nuevo contacto en el sistema y
-	| enviar email de confirmacion al admin del sistema y el cliente.
+	| Este archivo se encarga de guardar un nuevo producto en el sistema.
 	|
 	*/
 	require __DIR__.'/../../config/env.php';

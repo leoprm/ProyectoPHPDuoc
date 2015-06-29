@@ -39,6 +39,15 @@
 		<li class="active"><i class="fa fa-shopping-cart"></i> Prodcutos</li>
 		</ol>
 	</section>
+	<?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
+            <div class="alert alert-info" role="alert">
+                <strong>Hey!</strong>
+                <br>
+                Se elimino correctamente el Producto <?=$_SESSION['producto']?>! 
+                <?php unset($_SESSION['success_contact']);
+                      unset($_SESSION['producto']); ?>
+            </div>
+    <?php } ?>
 
 	<!-- Contenido -->
 	<section class="content">
@@ -95,12 +104,12 @@
 								<td>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8" >
-											<button type="submit" class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-trash"></span></button>
+											<a href="<?= ROOT_ADMIN ?>save/delete-producto.php?id=<?= $row['CODPROD'] ?>&img=<?= $row['IMAGENPROD']  ?>&nom=<?= $row['NOMBREPROD']  ?>" class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-trash"></span></a>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8">
-											<button type="submit" class="btn btn-info">Modificar <span class="glyphicon glyphicon-refresh"></span></button>
+											<a href="<?= ROOT_ADMIN ?>detalle.php?id=<?= $row['CODPROD'] ?>" class="btn btn-info">Modificar <span class="glyphicon glyphicon-refresh"></span></a>
 										</div>
 									</div>
 								</td>
