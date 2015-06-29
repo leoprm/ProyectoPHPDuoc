@@ -130,6 +130,11 @@
 		  			        <?php }  ?>  
 		  			        </tbody>
 		  			    </table>
+		  			    <div class="form-group">
+										<div class="col-md-2 col-sm-4 col-xs-8">
+											<a href="<?= ROOT_ADMIN ?>imprimepdf.php" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span></a>
+										</div>
+						</div>
 					</div>
 				</div>
 			</div>
