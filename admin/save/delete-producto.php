@@ -32,5 +32,5 @@
 		}
 	
 
-header('Location: ' .ROOT_ADMIN. '/productos.php');
+header('Location: ' .ROOT_ADMIN. 'productos.php');
 ?>
