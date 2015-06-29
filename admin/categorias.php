@@ -26,8 +26,8 @@
 	| haber solo HTML cn algunos tags para PHP para acceder a variables.
 	|
 	*/
-	$cat = new Categoria();
-	$lista = $cat->ObtenerLista();
+	$categoria = new Categoria();
+	$listaCat = $categoria->ObtenerLista();
 ?>
 
 <div class="content-wrapper">
@@ -66,17 +66,18 @@
 		  			        <tfoot>
 		  			            <tr>
 		  			                <th>Nombre</th>
-		  			                <th>Descripción</th>
-		  			                <th>Foto</th>	
+		  			                <th>Email</th>
+		  			                <th>Asunto</th>	
 		  			            </tr>
 		  			        </tfoot>
 
 		  			        <tbody>
-			  			        <?php foreach ($lista as $cate) { ?>
+			  			        <?php foreach ($listaCat as $lista) { ?>
 			  			            <tr>
-			  			                <td><?=$cate['NOMCATEGOR']?></td>
-			  			                <td><?=$cate['DESCRIPCATEGO']?></td>
-			  			                <td><?=$cate['IMAGENCAT']?></td>
+			  			                <td><?=$lista['NOMCATEGOR']?></td>
+			  			                <td><?= utf8_encode($lista['DESCRIPCATEGO'])?></td>
+			  			                <td><?=$lista['IMAGENCAT']?></td>
+			  			                <td> <a href="<?= ROOT_ADMIN ?>editarCategoria.php?id=<?= $lista['IDCATEGO'] ?>" class="btn btn-warning"> Editar </a> </td>
 			  			            </tr>
 			  			         <?php };?>
 		  			        </tbody>

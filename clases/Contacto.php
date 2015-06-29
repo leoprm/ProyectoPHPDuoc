@@ -10,7 +10,7 @@ class Contacto{
 	public $fechaIngreso;
 	public $db;
 
-	function __construct($email,$nombre,$mensaje,$asunto){
+	function __construct($email=null,$nombre=null,$mensaje=null,$asunto=null){
 		$this->email        = $email;
 		$this->nombre       = $nombre;		
 		$this->mensaje      = $mensaje;	
@@ -33,6 +33,17 @@ class Contacto{
 		
 		return $query->execute();
 	}	
+
+	function ObtenerLista(){
+		/*Definición del query que permitira obtener la lista de categorias*/
+		$sqlsel="select * from CONTACTO";
+		
+		/*Preparación SQL*/
+		$querylis = $this->db->conexion->prepare($sqlsel);
+		$querylis->execute();	
+
+		return $querylis;
+	}
 
 	function eliminaContacto($idcontacto){
 

@@ -8,14 +8,14 @@
 	| cada pagina, mas declaraion de variables para el header, menu, sidebar.
 	|
 	*/
-	$titulo = "Contactos";
+	$titulo = "Colores";
 
 	require __DIR__.'/../config/auth.php';
 	require __DIR__.'/../config/env.php';
 	require __DIR__.'/./templates/header.php';
 	require __DIR__.'/./templates/menu.php';
 	require __DIR__.'/./templates/sidebar.php';
-	require __DIR__.'/../clases/Contacto.php';
+	require __DIR__.'/../clases/Color.php';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,20 +26,20 @@
 	| haber solo HTML cn algunos tags para PHP para acceder a variables.
 	|
 	*/
-	$contacto = new contacto();
-	$listaCont = $contacto->ObtenerLista();
+	$color = new color();
+	$listaCol = $color->ObtenerLista();
 ?>
 
 <div class="content-wrapper">
 	<!-- Header de la pagina -->
 	<section class="content-header">
 		<h1>
-			Contactos
+			Colores
 			<small>Filtrad por "Reclamos"</small>
 		</h1>
 		<ol class="breadcrumb">
 		<li><a href="<?= ROOT_ADMIN ?>index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-		<li class="active"><i class="fa fa-group"></i> Contactos</li>
+		<li class="active"><i class="fa fa-group"></i> Colores</li>
 		</ol>
 	</section>
 
@@ -51,7 +51,7 @@
 			<div class="col-md-8">
 				<div class="box box-solid">
 					<div class="box-header with-border">
-			  			<h3 class="box-title">Lista de Contactos</h3>
+			  			<h3 class="box-title">Lista de Colores</h3>
 			  			<div class="box-tools pull-right">
 			    			<button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
 			  			</div>
@@ -61,32 +61,23 @@
 		  			       <thead>
 		  			            <tr>
 		  			                <th>Nombre</th>
-		  			                <th>Email</th>
-		  			                <th>Asunto</th>	
-		  			                <th>Mensaje</th>	
-		  			                <th>Fecha de envío</th>	
+		  			                <th>Color</th>
 		  			            </tr>
 		  			        </thead>
 		  			 
 		  			        <tfoot>
 		  			            <tr>
 		  			                <th>Nombre</th>
-		  			                <th>Email</th>
-		  			                <th>Asunto</th>	
-		  			                <th>Mensaje</th>	
-		  			                <th>Fecha de envío</th>	
+		  			                <th>Color</th>
 		  			            </tr>
 		  			        </tfoot>
 		  			 
 		  			       <tbody>
-		  			      		 <?php foreach ($listaCont as $lista) { ?>
+		  			      		 <?php foreach ($listaCol as $lista) { ?>
 			  			            <tr>
-			  			                <td><?=$lista['NOMBRECONTACTO']?></td>
-			  			                <td><?=$lista['EMAILCONTAC']?></td>
-			  			                <td><?=$lista['ASUNTO']?></td>
-			  			                <td><?=$lista['MENSAJE']?></td>
-			  			                <td><?=$lista['FECHAENVIO']?></td>
-			  			                <td> <a href="<?= ROOT_ADMIN ?>editarColor.php?id=<?= $lista['IDCONTACTO'] ?>" class="btn btn-warning"> Editar </a> </td>
+			  			                <td><?=$lista['NOMBRECOLOR']?></td>
+			  			                <td><?=$lista['COD_HEX']?></td>
+			  			                <td> <a href="<?= ROOT_ADMIN ?>editarColor.php?id=<?= $lista['IDCOLOR'] ?>" class="btn btn-warning"> Editar </a> </td>
 			  			            </tr>
 			  			    	<?php };?>
 		  			        </tbody>

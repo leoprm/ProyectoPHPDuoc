@@ -107,4 +107,7 @@ alter table COLOR add constraint FK_TIENE foreign key (IDPRODCUTO)
 INSERT INTO `miraentuinterior`.`USUARIO` (`IDUSUARIO`, `EMAILUSER`, `USERNAME`, `PASSWORD`, `NOMBREUSER`, `FECHAINGRESO`, `EDITA`) VALUES (NULL, 'grumpy@cat.cl', 'grumpycat', MD5('123'), 'Grumpy Cat', '2015-06-23 16:43:23', '1');
 
 /*Agregamos un producto de prueba*/
-INSERT INTO `miraentuinterior`.`CATEGORIA` (`IDCATEGORI`,`NOMCATEGOR`, `DESCRIPCATEGO`, `IMAGENCAT`) VALUES (NULL, 'Abstracto', 'Diseños abstractos que...', 'algo.jpg');
+INSERT INTO `miraentuinterior`.`CATEGORIA` (`IDCATEGORI`,`NOMCATEGOR`, `DESCRIPCATEGO`, `IMAGENCAT`) VALUES (NULL, 'Abstracto', 'Diseños abstractos que...', 'algo.jpg');/*Agregamos un producto de prueba*/
+
+/*Agregamos un contacto de prueba*/
+INSERT INTO `miraentuinterior`.`CONTACTO` (`IDCONTACTO`,`NOMBRECONTACTO`, `EMAILCONTAC`, `MENSAJE`, `ASUNTO`, `FECHAENVIO`) VALUES (NULL, 'Sergio Flores', 'sergio@flores.com', 'Quyero comprar un sticker bañado en oro', 'Factivilidad de Producto', '2015-26-06');
