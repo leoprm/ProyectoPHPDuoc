@@ -31,7 +31,7 @@
    			$extension == "jpeg" ||
    			$extension == "gif" ) {
     				
-		if($producto->AgregarProducto($categoria,1,$usuario)){
+		if($producto->AgregarProducto($categoria,$color,$usuario)){
 			$_SESSION['success_contact'] = true;
 			$_SESSION['producto'] = $nomProducto;
 			$target_path =ROOT_URL. "assets/dist/img/uploads/";
