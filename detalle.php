@@ -68,6 +68,12 @@
                             <ul>
                                 <li>Alto: <?= $producto['DIMALTO'] ?></li>
                                 <li>Ancho: <?= $producto['DIMANCHO'] ?></li>
+                                <li>
+                                    Colores disponibles:
+                                    <ul>
+                                        <li> <strong>Principal:</strong> <div class="caja-color" style="background-color:<?= $producto['COLOR'] ?>"></div></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                         <div class="precio">

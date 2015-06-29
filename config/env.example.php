@@ -33,5 +33,11 @@ if(!defined('MYSQL_PASS')){
 if(!defined('MYSQL_DB')){
 	define("MYSQL_DB","dbname=nombrebasededatos");
 }
+if(!defined('USER_EMAIL')){
+	define("USER_EMAIL","user@gmail.com");
+}
+if(!defined('PASSWORD_EMAIL')){
+	define("PASSWORD_EMAIL","secret");
+}
 
 ?>
