@@ -25,9 +25,10 @@
 	$ancho= ( isset($_GET['anc']) && $_GET['anc'] != "" ) ? $_GET['anc'] : null;
 	$alto= ( isset($_GET['alt']) && $_GET['alt'] != "" ) ? $_GET['alt'] : null;
 	$cant= ( isset($_GET['cnt']) && $_GET['cnt'] != "" ) ? $_GET['cnt'] : null;
-	$color= ( isset($_GET['clr']) && $_GET['clr'] != "" ) ? $_GET['clr'] : null;
+	$clor= ( isset($_GET['clr']) && $_GET['clr'] != "" ) ? $_GET['clr'] : null;
 	$cat= ( isset($_GET['cate']) && $_GET['cate'] != "" ) ? $_GET['cate'] : null;
     $imgn= ( isset($_GET['img']) && $_GET['img'] != "" ) ? $_GET['img'] : null;
+    $colores=dechex($clor);
 	/*
 	|--------------------------------------------------------------------------
 	| Contenido del Sitio
@@ -87,7 +88,7 @@
 					</div>
 					<div class="box-body">
 
-						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>save/updatear-producto.php" enctype="multipart/form-data">
+						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>save/updatear-producto.php?id=<?= $idprod ?>" enctype="multipart/form-data">
 							<fieldset>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Producto</label>
@@ -131,8 +132,8 @@
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Color:</label>
 									<div class="col-lg-10"> 
-									<input type="text" class="form-control my-colorpicker1" name="color" 
-									value=<?=$color?> />
+									<input type="color"  name="color" 
+									value=<?=$colores?> />
 									</div>
 								</div>
 
