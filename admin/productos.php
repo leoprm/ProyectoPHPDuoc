@@ -39,6 +39,7 @@
 		<li class="active"><i class="fa fa-shopping-cart"></i> Prodcutos</li>
 		</ol>
 	</section>
+	<!-- Resultado positivo -->
 	<?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
             <div class="alert alert-info" role="alert">
                 <strong>Hey!</strong>
@@ -48,7 +49,15 @@
                       unset($_SESSION['producto']); ?>
             </div>
     <?php } ?>
-
+    <!-- resultado negativo segun corresponda -->
+	<?php if( array_key_exists('error_tmp', $_SESSION) ){ ?>
+                <div class="alert alert-danger" role="alert">
+                    <strong><span class="glyphicon glyphicon-exclamation-sign"></span>  D'oh!</strong>
+                    <br>
+                    <?= $_SESSION['error_tmp'] ?>
+                    <?php unset($_SESSION['error_tmp']); ?>
+                </div>
+    <?php } ?>
 	<!-- Contenido -->
 	<section class="content">
 
