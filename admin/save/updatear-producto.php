@@ -31,20 +31,25 @@
 		if(	$extension == "jpg" ||
 			$extension == "png" ||
 			$extension == "jpeg" ||
-			$extension == "gif" ) {
+			$extension == "gif" ||
+			$extension == null) {
 
 
 			if($producto->actualizaProducto($idprod,$categoria,$color,$usuario)){
-				$_SESSION['success_contact'] = true;
+				$_SESSION['success_update'] = true;
 				$_SESSION['producto']        = $nomProducto;
 				$target_path                 = ROOT_URL. "assets/dist/img/uploads/";
 				$target_path                 = $target_path . basename( $_FILES['imagen']['name']);
 				if(move_uploaded_file($_FILES['imagen']['tmp_name'], $target_path)) {
 					echo "El archivo ". basename( $_FILES['imagen']['name']). " ha sido subido";
 				}
-				else{
+				else{ if($extension==null){
+					$_SESSION['success_update'] = true;
+				}else{
 					$_SESSION['error_tmp'] = "Ocurrio un error al momento de subir la imagen, por favor intenete nuevamente.";
 				}
+				}
+				
 			}
 			else{
 				$_SESSION['error_tmp'] = "Producto no ingresado";
@@ -60,5 +65,5 @@
 	else{
 		$_SESSION['error_tmp'] = "Todos los campos son obligatorios.";
 	}
-	header('Location: ' .ROOT_ADMIN. 'agregar-producto.php');
+	header('Location: ' .ROOT_ADMIN. 'productos.php');
 ?>

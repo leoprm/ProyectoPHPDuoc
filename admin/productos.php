@@ -39,7 +39,17 @@
 		<li class="active"><i class="fa fa-shopping-cart"></i> Prodcutos</li>
 		</ol>
 	</section>
-	<!-- Resultado positivo -->
+	<!-- Resultado positivo modificar-->
+	<?php if( array_key_exists('success_update', $_SESSION) ){ ?>
+            <div class="alert alert-info" role="alert">
+                <strong>Hey!</strong>
+                <br>
+                Se modifico correctamente el Producto ! 
+                <?php unset($_SESSION['success_update']);
+                      ?>
+            </div>
+    <?php } ?>
+	<!-- Resultado positivo eliminar-->
 	<?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
             <div class="alert alert-info" role="alert">
                 <strong>Hey!</strong>
