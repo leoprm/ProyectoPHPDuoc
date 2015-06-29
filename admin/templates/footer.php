@@ -25,5 +25,15 @@
 	    	$(".my-colorpicker1").colorpicker();	
 	    	} );
 	    </script>
+	    <!-- funcion para confirmar eliminar producto-->
+	    <script type="text/javascript">		
+		function confirmation() {
+    	if(confirm("Realmente desea eliminar?"))
+    	{
+       		return true;
+    	}
+    		return false;
+		}
+		</script>
   </body>
 </html>

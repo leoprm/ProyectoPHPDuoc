@@ -113,12 +113,16 @@
 								<td>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8" >
-											<a href="<?= ROOT_ADMIN ?>save/delete-producto.php?id=<?= $row['CODPROD'] ?>&img=<?= $row['IMAGENPROD']  ?>&nom=<?= $row['NOMBREPROD']  ?>" class="btn btn-danger">Eliminar <span class="glyphicon glyphicon-trash"></span></a>
+											<a href="<?= ROOT_ADMIN ?>save/delete-producto.php?id=<?= $row['CODPROD'] ?>&img=<?= $row['IMAGENPROD']  ?>&nom=<?= $row['NOMBREPROD']  ?>" 
+													class="btn btn-danger" 
+											  		onClick="return confirmation()">
+											 		<span class="glyphicon glyphicon-trash"></span>
+											</a>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8">
-											<a href="<?= ROOT_ADMIN ?>detalle.php?id=<?= $row['CODPROD'] ?>" class="btn btn-info">Modificar <span class="glyphicon glyphicon-refresh"></span></a>
+											<a href="<?= ROOT_ADMIN ?>detalle.php?id=<?= $row['CODPROD'] ?>" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
 										</div>
 									</div>
 								</td>

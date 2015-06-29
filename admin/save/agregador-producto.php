@@ -12,7 +12,8 @@
 	require __DIR__.'/../../clases/Producto.php';
 	require __DIR__.'/../../clases/Usuario.php';
 
-	if( !empty($_POST['nomProducto']) && !empty($_POST['descripcion']) && !empty($_POST['precio']) && !empty($_POST['ancho']) && !empty($_POST['alto']) && !empty($_POST['cantidad'])&& !empty($_POST['color'])&& !empty($_POST['categoria']) ){
+	if( !empty($_POST['nomProducto']) && !empty($_POST['descripcion']) && !empty($_POST['precio']) && !empty($_POST['ancho']) && !empty($_POST['alto']) && !empty($_POST['cantidad'])&& !empty($_POST['color'])&& !empty($_POST['categoria']) )
+	{
 		$nomProducto = $_POST['nomProducto'];
 		$descripcion = $_POST['descripcion'];
 		$precio      = $_POST['precio'];
@@ -27,22 +28,11 @@
 		$extension   = pathinfo($imagen,PATHINFO_EXTENSION);
 
 		if(	$extension == "jpg" ||
- 		  	$extension == "png" ||
-   			$extension == "jpeg" ||
-   			$extension == "gif" ) {
-    				
-<<<<<<< HEAD
-		if($producto->AgregarProducto($categoria,$color,$usuario)){
-			$_SESSION['success_contact'] = true;
-			$_SESSION['producto'] = $nomProducto;
-			$target_path =ROOT_URL. "assets/dist/img/uploads/";
-			$target_path = $target_path . basename( $_FILES['imagen']['name']);
-			if(move_uploaded_file($_FILES['imagen']['tmp_name'], $target_path)) {
-			echo "El archivo ". basename( $_FILES['imagen']['name']). " ha sido subido";
-		}else{
-			$_SESSION['error_tmp'] = "Ha ocurrido un error, trate de nuevo!";
-		}
-=======
+			$extension == "png" ||
+			$extension == "jpeg" ||
+			$extension == "gif" ) {
+
+
 			if($producto->AgregarProducto($categoria,$color,$usuario)){
 				$_SESSION['success_contact'] = true;
 				$_SESSION['producto']        = $nomProducto;
@@ -58,11 +48,13 @@
 			else{
 				$_SESSION['error_tmp'] = "Producto no ingresado";
 			}	
-  		}
-  		else{
-  			$_SESSION['error_tmp'] = "Sólo se permiten imagenes";
-  		}	
->>>>>>> d69051db8bac284f77d7e534ea5beb740dfa1b0f
+
+
+			
+		}else{
+			$_SESSION['error_tmp'] = "Sólo se permiten imagenes";
+
+		}
 	}
 	else{
 		$_SESSION['error_tmp'] = "Todos los campos son obligatorios.";
