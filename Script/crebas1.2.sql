@@ -12,15 +12,11 @@ CREATE DATABASE IF NOT EXISTS `miraentuinterior` DEFAULT CHARACTER SET utf8 COLL
 USE `miraentuinterior`;
 
 
-drop table if exists PRODUCTO;
-
-drop table if exists CATEGORIA;
-
 drop table if exists COLOR;
-
-drop table if exists CONTACTO;
-
+drop table if exists PRODUCTO;
+drop table if exists CATEGORIA;
 drop table if exists USUARIO;
+drop table if exists CONTACTO;
 
 /*==============================================================*/
 /* Table: CATEGORIA                                             */
