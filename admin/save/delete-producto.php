@@ -21,13 +21,11 @@
 			$_SESSION['success_contact'] = true;
             $_SESSION['producto'] = $nomprod;
             
-			
+			/*Metodo de php que elimina las imagenes del servidor*/
 			$file = ROOT_URL. "assets/dist/img/uploads/" . $imgn;
 			$do = unlink($file);
  
-			if($do != true){
- 			echo "Error al eliminar foto , posible mal nombre?" . $imgn . "<br />";
- 			}
+			
               
 		}else{
 			echo "Ha ocurrido un error, trate de nuevo!";

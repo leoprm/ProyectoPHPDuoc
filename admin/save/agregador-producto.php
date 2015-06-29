@@ -24,23 +24,33 @@
 		$imagen = $_FILES['imagen']['name'];
 		$usuario= $_SESSION['usuario']['id'];
 		$producto = new Producto($nomProducto,$descripcion,$precio,$ancho,$alto,$imagen,$cantidad);
+		$extension = pathinfo($imagen,PATHINFO_EXTENSION);
 
+		if(	$extension == "jpg" ||
+ 		  	$extension == "png" ||
+   			$extension == "jpeg" ||
+   			$extension == "gif" ) {
+    				
 		if($producto->AgregarProducto($categoria,1,$usuario)){
 			$_SESSION['success_contact'] = true;
+			$_SESSION['producto'] = $nomProducto;
 			$target_path =ROOT_URL. "assets/dist/img/uploads/";
 			$target_path = $target_path . basename( $_FILES['imagen']['name']);
 			if(move_uploaded_file($_FILES['imagen']['tmp_name'], $target_path)) {
 			echo "El archivo ". basename( $_FILES['imagen']['name']). " ha sido subido";
 		}else{
-			echo "Ha ocurrido un error, trate de nuevo!";
+			$_SESSION['error_tmp'] = "Ha ocurrido un error, trate de nuevo!";
 		}
 	}
 	else{
-		ECHO "Producto no ingresado";
-	}		
+		$_SESSION['error_tmp'] = "Producto no ingresado";
+	}	
+  }else{
+  	$_SESSION['error_tmp'] = "Sólo se permiten imagenes";
+  }	
 }
 else{
-	echo "Todos los campos son obligatorios.";
+	$_SESSION['error_tmp'] = "Todos los campos son obligatorios.";
 }
 header('Location: ' .ROOT_ADMIN. 'agregar-producto.php');
 ?>
