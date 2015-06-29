@@ -122,9 +122,13 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8">
-											<a href="<?= ROOT_ADMIN ?>detalle.php?id=<?= $row['CODPROD'] ?>" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
+											<a href="<?= ROOT_ADMIN ?>update-producto.php?id=<?= $row['CODPROD'] ?>&nom=<?= $row['NOMBREPROD']  ?>&
+											 des=<?= $row['DESCRIPPROD']  ?>&pre=<?= $row['PRECIO']  ?>&anc=<?= $row['DIMANCHO']  ?>
+											 &alt=<?= $row['DIMALTO']  ?>&cnt=<?= $row['CANTIDAD']  ?>&clr=<?= $row['COLOR']  ?>&
+											  cate=<?= $row['IDCATEGORI']  ?>&img=<?= $row['IMAGENPROD']  ?>" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
 										</div>
 									</div>
+
 								</td>
 							</tr>
 		  			        <?php }  ?>  
