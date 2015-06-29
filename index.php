@@ -61,7 +61,7 @@
                             <img src="<?= ROOT_URL ?>assets/dist/img/uploads/<?= $producto['IMAGENPROD'] ?>" class="img-circle img-producto">
                             <div class="caption">
                                 <h3><?= $producto['NOMBREPROD'] ?></h3>
-                                <p><?= utf8_encode($producto['DESCRIPPROD']) ?></p>
+                                <p><?= $producto['DESCRIPPROD'] ?></p>
                                 <div class="clearfix">
                                     <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['CODPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
                                 </div>

@@ -16,7 +16,7 @@
     $modeloCategoria = new Categoria();
 
     $idProducto = ( isset($_GET['id']) && $_GET['id'] != "" ) ? $_GET['id'] : null;
-    $producto = $modeloProducto->traerProducto($idProducto);
+    $producto = $modeloProducto->buscarPorID($idProducto);
     $categoria = ( is_array($producto) && count($producto) > 0 ) ? $modeloCategoria->buscarPorID($producto['IDCATEGORI']) : null ;
     $nombrePagina = ( is_array($producto) && count($producto) > 0 ) ? $producto['NOMBREPROD'] : 'Producto no Encontrado' ;
 

@@ -97,6 +97,19 @@ if( !in_array('Producto', get_declared_classes()) ){
 
 		}
 
+		public function buscarPorID($idprod){
+			/*Definición del query que permitira traer un nuevo registro*/
+			$sqlsel="select * from PRODUCTO
+			where CODPROD=:prod";
+		 
+ 			/*Preparación SQL*/
+ 			$querysel = $this->db->conexion->prepare($sqlsel);
+ 			$querysel->bindParam(':prod',$idprod);
+ 
+ 			$querysel->execute();
+			return $querysel->fetch();
+		 }
+
 		function obtenerTodos($limit = null,$excluir = []){
 			$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
 
