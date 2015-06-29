@@ -20,15 +20,15 @@
 		if($producto->eliminaProducto($idprod)){
 			$_SESSION['success_contact'] = true;
             $_SESSION['producto'] = $nomprod;
-            $_SESSION['imagen'] = true;
-			/*
-			$file = ROOT_URL. "assets/dist/img/uploads/" . $f->foto;
+            
+			
+			$file = ROOT_URL. "assets/dist/img/uploads/" . $imgn;
 			$do = unlink($file);
  
 			if($do != true){
- 			echo "There was an error trying to delete the file" . $f->foto . "<br />";
+ 			echo "Error al eliminar foto , posible mal nombre?" . $imgn . "<br />";
  			}
-                */
+              
 		}else{
 			echo "Ha ocurrido un error, trate de nuevo!";
 		}
