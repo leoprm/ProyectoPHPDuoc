@@ -21,7 +21,7 @@
 	    		if( $('#dataTablesTable').length ){
 	    	    	$('#dataTablesTable').dataTable();
 	    		}
-	    	<!-- bootstrap color picker -->	
+	    	/*colorpicker*/	
 	    	$(".my-colorpicker1").colorpicker();	
 	    	} );
 	    </script>

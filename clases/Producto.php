@@ -147,6 +147,47 @@ if( !in_array('Producto', get_declared_classes()) ){
 			return true;
 		}
 		
+		function actualizaProducto($idprod,$categoria,$color,$usuario){
+
+			/*Definicion del query que permitira actualizar */
+			$sqlupd="update producto
+			set idcategori=:cate ,idusuario=:usr,nombreprod=:nomprod,descripprod=:desc,precio=:prec,dimancho=:danc
+			,dimalto=:dalt,imagenprod=:img,color=:colr,cantidad=:cant  
+			where CODPROD=:id";
+
+
+			/*Preparación SQL*/
+			try {
+				$queryup=$this->db->conexion->prepare($sqlupd);
+			}
+			catch( PDOException $Exception ) {
+				echo "Clase Producto:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				return false;
+			}
+			
+			/*Asignacion de parametros utilizando bindparam*/
+			$queryup->bindParam(':cate',$categoria);
+			$queryup->bindParam(':id',$idprod);
+			$queryup->bindParam(':colr',$color);
+			$queryup->bindParam(':usr',$usuario);
+			$queryup->bindParam(':nomprod',$this->nombreprod);
+			$queryup->bindParam(':desc',$this->sdescripcion);
+			$queryup->bindParam(':prec',$this->sprecio);
+			$queryup->bindParam(':danc',$this->sdimanc);
+			$queryup->bindParam(':dalt',$this->sdimal);
+			$queryup->bindParam(':img',$this->imagen);
+			$queryup->bindParam(':cant',$this->cantidad);
+
+			try {
+				$queryup->execute();
+			}
+			catch( PDOException $Exception ) {
+				echo "Clase Producto:ERROR:Ejecución Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				die();
+				return false;
+			}
+			return true;
+		}
 	}
 }
 ?>	
