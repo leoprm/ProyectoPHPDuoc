@@ -27,8 +27,8 @@ if( !in_array('Producto', get_declared_classes()) ){
 
 		function AgregarProducto($categoria,$color,$usuario){
 			/*Definición del query que permitira ingresar un nuevo registro*/
-			$sqlins="insert into producto(idcategori,idcolor,idusuario,nombreprod,descripprod,precio,dimancho,dimalto,imagenprod,cantidad)
-			values(:cate,:colr,:usr,:nomprod,:desc,:prec,:danc,:dalt,:img,:cant)";
+			$sqlins="insert into PRODUCTO(idcategori,idusuario,nombreprod,descripprod,precio,dimancho,dimalto,imagenprod,color,cantidad)
+			values(:cate,:usr,:nomprod,:desc,:prec,:danc,:dalt,:img,:colr,:cant)";
 			/*Verifica que el producto no exista*/
 			if ($this->traerProducto($this->nombreprod)){
 				echo "El produto $this->nombreprod existe en la base de datos.";
@@ -60,6 +60,7 @@ if( !in_array('Producto', get_declared_classes()) ){
 			}
 			catch( PDOException $Exception ) {
 				echo "Clase Producto:ERROR:Ejecución Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				die();
 				return false;
 			}
 			return true;
@@ -81,8 +82,7 @@ if( !in_array('Producto', get_declared_classes()) ){
 
 		function traerProducto($nombreprod){
 			/*Definición del query que permitira traer un nuevo registro*/
-			$sqlsel="select * from producto
-			where nombreprod=:prod";
+			$sqlsel="select * from PRODUCTO	where nombreprod=:prod";
 
 			/*Preparación SQL*/
 			$querysel=$this->db->conexion->prepare($sqlsel);

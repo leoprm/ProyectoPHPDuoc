@@ -40,30 +40,35 @@
 			<li class="active"><i class="fa fa-shopping-cart"></i> Prodcutos</li>
 		</ol>
 	</section>
-      <!-- resultado postivo-->
-	  <?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
-            <div class="alert alert-info" role="alert">
-                <strong>Hey!</strong>
-                <br>
-                Se agrego correctamente el producto <?=$_SESSION['producto']?>! 
-                <?php unset($_SESSION['success_contact']);
-                  unset($_SESSION['producto']); ?>
-            </div>
-    <?php } ?>
-	<!-- resultado negativo segun corresponda -->
-	<?php if( array_key_exists('error_tmp', $_SESSION) ){ ?>
-                <div class="alert alert-danger" role="alert">
-                    <strong><span class="glyphicon glyphicon-exclamation-sign"></span>  D'oh!</strong>
-                    <br>
-                    <?= $_SESSION['error_tmp'] ?>
-                    <?php unset($_SESSION['error_tmp']); ?>
-                </div>
-    <?php } ?>
 	<!-- Contenido -->
 	<section class="content">
-
 		<!-- Otros Contenidos -->
 		<div class="row">
+
+		  	<!-- resultado postivo-->
+		  	<?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
+		  		<div class="col-md-12">
+			        <div class="alert alert-info" role="alert">
+			            <strong>Hey!</strong>
+			            <br>
+			            Se agrego correctamente el producto <?=$_SESSION['producto']?>! 
+			            <?php unset($_SESSION['success_contact']);
+			              unset($_SESSION['producto']); ?>
+			        </div>
+			    </div>
+		    <?php } ?>
+			<!-- resultado negativo segun corresponda -->
+			<?php if( array_key_exists('error_tmp', $_SESSION) ){ ?>
+			    <div class="col-md-12">
+			        <div class="alert alert-danger" role="alert">
+			            <strong><span class="glyphicon glyphicon-exclamation-sign"></span>  D'oh!</strong>
+			            <br>
+			            <?= $_SESSION['error_tmp'] ?>
+			            <?php unset($_SESSION['error_tmp']); ?>
+			        </div>
+		       	</div>
+		    <?php } ?>
+
 			<div class="col-md-offset-2 col-md-8">
 				<div class="box box-solid">
 					<div class="box-header with-border">
@@ -74,7 +79,7 @@
 					</div>
 					<div class="box-body">
 
-						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>/save/agregador-producto.php" enctype="multipart/form-data">
+						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>save/agregador-producto.php" enctype="multipart/form-data">
 							<fieldset>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Producto</label>
@@ -97,19 +102,19 @@
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Ancho (cm)</label>
 									<div class="col-lg-10">
-										<input class="form-control" id="ancho" placeholder="Ancho" type="number" name="ancho" required="true" min="0" max="5" step="0.01">
+										<input class="form-control" id="ancho" placeholder="Ancho" type="number" name="ancho" required="true" min="0" step="0.01">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Alto (cm)</label>
 									<div class="col-lg-10">
-										<input class="form-control" id="alto" placeholder="Alto" type="number" name="alto" required="true" min="0" max="5" step="0.01">
+										<input class="form-control" id="alto" placeholder="Alto" type="number" name="alto" required="true" min="0" step="0.01">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Cantidad</label>
 									<div class="col-lg-10"> 
-										<input class="form-control" id="cantidad" placeholder="Cantidad" type="number" name="cantidad" required="true" min="1" >
+										<input class="form-control" id="cantidad" placeholder="Cantidad" type="number" name="cantidad" required="true" min="0" >
 									</div>
 								</div>
 
