@@ -81,8 +81,7 @@ if( !in_array('Producto', get_declared_classes()) ){
 
 		function traerProducto($nombreprod){
 			/*Definición del query que permitira traer un nuevo registro*/
-			$sqlsel="select * from producto
-			where nombreprod=:prod";
+			$sqlsel="select * from PRODUCTO	where nombreprod=:prod";
 
 			/*Preparación SQL*/
 			$querysel=$this->db->conexion->prepare($sqlsel);

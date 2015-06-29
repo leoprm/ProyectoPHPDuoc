@@ -43,5 +43,5 @@
 else{
 	echo "Todos los campos son obligatorios.";
 }
-header('Location: ' .ROOT_ADMIN. '/agregar-producto.php');
+header('Location: ' .ROOT_ADMIN. 'agregar-producto.php');
 ?>
