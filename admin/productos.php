@@ -39,7 +39,17 @@
 		<li class="active"><i class="fa fa-shopping-cart"></i> Prodcutos</li>
 		</ol>
 	</section>
-	<!-- Resultado positivo -->
+	<!-- Resultado positivo modificar-->
+	<?php if( array_key_exists('success_update', $_SESSION) ){ ?>
+            <div class="alert alert-info" role="alert">
+                <strong>Hey!</strong>
+                <br>
+                Se modifico correctamente el Producto ! 
+                <?php unset($_SESSION['success_update']);
+                      ?>
+            </div>
+    <?php } ?>
+	<!-- Resultado positivo eliminar-->
 	<?php if( array_key_exists('success_contact', $_SESSION) ){ ?>
             <div class="alert alert-info" role="alert">
                 <strong>Hey!</strong>
@@ -122,9 +132,14 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8">
-											<a href="<?= ROOT_ADMIN ?>detalle.php?id=<?= $row['CODPROD'] ?>" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
+											<a href="<?= ROOT_ADMIN ?>update-producto.php?id=<?= $row['CODPROD'] ?>&nom=<?= $row['NOMBREPROD']  ?>&
+											 des=<?= $row['DESCRIPPROD']  ?>&pre=<?= $row['PRECIO']  ?>&anc=<?= $row['DIMANCHO']  ?>
+											 &alt=<?= $row['DIMALTO']  ?>&cnt=<?= $row['CANTIDAD']  ?>&
+											  cate=<?= $row['IDCATEGORI']  ?>&img=<?= $row['IMAGENPROD']  ?>" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>
+											  <?php $_SESSION['color'] = $row['COLOR'] ;?>
 										</div>
 									</div>
+
 								</td>
 							</tr>
 		  			        <?php }  ?>  

@@ -12,11 +12,11 @@ CREATE DATABASE IF NOT EXISTS `miraentuinterior` DEFAULT CHARACTER SET utf8 COLL
 USE `miraentuinterior`;
 
 
-drop table if exists COLOR;
-
 drop table if exists PRODUCTO;
 
 drop table if exists CATEGORIA;
+
+drop table if exists COLOR;
 
 drop table if exists CONTACTO;
 
@@ -40,7 +40,7 @@ create table CATEGORIA
 create table COLOR
 (
    IDCOLOR              bigint unsigned not null auto_increment,
-   IDPROD               bigint unsigned not null,
+   IDPRODUCTO           bigint unsigned not null,
    NOMBRECOLOR          varchar(50) not null,
    COD_HEX              varchar(20) not null,
    primary key (IDCOLOR)
@@ -65,7 +65,7 @@ create table CONTACTO
 /*==============================================================*/
 create table PRODUCTO
 (
-   IDPROD               bigint unsigned not null auto_increment,
+   CODPROD              bigint unsigned not null auto_increment,
    IDCATEGORI           bigint unsigned not null,
    IDUSUARIO            bigint unsigned not null,
    NOMBREPROD           varchar(50) not null,
@@ -76,7 +76,7 @@ create table PRODUCTO
    COLOR                varchar(20) not null,
    IMAGENPROD           varchar(30) not null,
    CANTIDAD             numeric(10,0) not null,
-   primary key (IDPROD)
+   primary key (CODPROD)
 );
 
 /*==============================================================*/
@@ -100,8 +100,8 @@ alter table PRODUCTO add constraint FK_CREADO foreign key (IDUSUARIO)
 alter table PRODUCTO add constraint FK_PERTENECE foreign key (IDCATEGORI)
       references CATEGORIA (IDCATEGORI) on delete cascade  on update cascade;
 
-alter table COLOR add constraint FK_TIENE foreign key (IDPROD)
-      references PRODUCTO (IDPROD) on delete cascade on update cascade;
+alter table COLOR add constraint FK_TIENE foreign key (IDPRODCUTO)
+      references PRODUCTO (CODPROD) on delete cascade on update cascade;
 
 /*Agregamos un usuario de prueba*/
 INSERT INTO `miraentuinterior`.`USUARIO` (`IDUSUARIO`, `EMAILUSER`, `USERNAME`, `PASSWORD`, `NOMBREUSER`, `FECHAINGRESO`, `EDITA`) VALUES (NULL, 'grumpy@cat.cl', 'grumpycat', MD5('123'), 'Grumpy Cat', '2015-06-23 16:43:23', '1');
