@@ -8,16 +8,18 @@
 	| cada pagina, mas declaraion de variables para el header, menu, sidebar.
 	|
 	*/
-	$titulo = "Agregar Categoria";
+	$titulo = "Agregar Color";
 
 	require __DIR__.'/../config/auth.php';
 	require __DIR__.'/../config/env.php';
 	require __DIR__.'/./templates/header.php';
 	require __DIR__.'/./templates/menu.php';
 	require __DIR__.'/./templates/sidebar.php';
-	require __DIR__.'/../clases/Categoria.php';
+	require __DIR__.'/../clases/Producto.php';
 
-	
+	$modelo = new Producto();
+	$productos = $modelo->obtenerTodos();
+
 	/*
 	|--------------------------------------------------------------------------
 	| Contenido del Sitio
@@ -32,10 +34,10 @@
 <div class="content-wrapper">
 	<!-- Header de la pagina -->
 	<section class="content-header">
-		<h1>Categorias</h1>
+		<h1>Colores</h1>
 		<ol class="breadcrumb">
 			<li><a href="<?= ROOT_ADMIN ?>index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-			<li class="active"><i class="fa fa-tags"></i> Categorias</li>
+			<li class="active"><i class="fa "></i> Colores</li>
 		</ol>
 	</section>
 	<!-- Contenido -->
@@ -49,9 +51,9 @@
 			        <div class="alert alert-info" role="alert">
 			            <strong>Hey!</strong>
 			            <br>
-			            Se agrego correctamente la categoria <?=$_SESSION['categoria']?>! 
+			            Se agrego correctamente el color <?=$_SESSION['nomcolor']?>! 
 			            <?php unset($_SESSION['success_contact']);
-			              unset($_SESSION['categoria']); ?>
+			              unset($_SESSION['nomcolor']); ?>
 			        </div>
 			    </div>
 		    <?php } ?>
@@ -70,33 +72,36 @@
 			<div class="col-md-offset-2 col-md-8">
 				<div class="box box-solid">
 					<div class="box-header with-border">
-						<h3 class="box-title">Nueva Categoria</h3>
+						<h3 class="box-title">Nuevo Color</h3>
 						<div class="box-tools pull-right">
 							<button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
 						</div>
 					</div>
 					<div class="box-body">
 
-						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>save/agregador-categoria.php" enctype="multipart/form-data">
+						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>save/agregador-color.php" enctype="multipart/form-data">
 							<fieldset>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Nombre</label>
 									<div class="col-lg-10">
-										<input class="form-control" id="nomCategoria" placeholder="Nombre" type="text" name="nomCategoria" required="true" patern="[A-Za-z]{50}">
+										<input class="form-control" id="nomColor" placeholder="Nombre" type="text" name="nomColor" required="true" patern="[A-Za-z]{50}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="textArea" class="col-lg-2 control-label">Descripción</label>
-									<div class="col-lg-10">
-										<textarea class="form-control" rows="3" id="descripcion" placeholder="Describe brevemente la Categoria" name="descripcion" required="true" maxleng="150"></textarea>
+									<label for="inputEmail" class="col-lg-2 control-label">Color</label>
+									<div class="col-lg-10"> 
+									<input type="text" class="form-control my-colorpicker1" name="color" />
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="inputEmail" class="col-lg-2 control-label">Imagen</label>
+								<label for="select" class="col-lg-2 control-label">Producto</label>
 									<div class="col-lg-10">
-										<input class="form-control" id="imagen" placeholder="Imagen" type="file" name="imagen" >
+										<select class="form-control" id="producto" name="producto">
+										<?php foreach ($productos as $row){ ?>	
+											<option value="<?= $row['IDPROD'] ?>"><?= $row['NOMBREPROD'] ?> </option>
+										<?php } ?>	
+										</select>
+										<br>
 									</div>
-								</div>
 								<div class="form-group">
 									<div class="col-lg-10 col-lg-offset-2 text-right">
 										<button type="submit" class="btn btn-success">Agregar<span class="glyphicon glyphicon-send"></span></button>

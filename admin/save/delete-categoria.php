@@ -16,7 +16,7 @@
 		$imgn= ( isset($_GET['img']) && $_GET['img'] != "" ) ? $_GET['img'] : null;
 		$nomcat= ( isset($_GET['nom']) && $_GET['nom'] != "" ) ? $_GET['nom'] : null;
 
-		if($categoria->eliminacategoria($idcat)){
+		if($categoria->eliminaCategoria($idcat)){
 			$_SESSION['success_contact'] = true;
             $_SESSION['categoria'] = $nomcat;
             

@@ -62,6 +62,7 @@
 		  			            <tr>
 		  			                <th>Nombre</th>
 		  			                <th>Color</th>
+		  			                <th>Id Producto</th>
 		  			            </tr>
 		  			        </thead>
 		  			 
@@ -69,6 +70,7 @@
 		  			            <tr>
 		  			                <th>Nombre</th>
 		  			                <th>Color</th>
+		  			                <th>Id Producto</th>
 		  			            </tr>
 		  			        </tfoot>
 		  			 
@@ -77,6 +79,7 @@
 			  			            <tr>
 			  			                <td><?=$lista['NOMBRECOLOR']?></td>
 			  			                <td><?=$lista['COD_HEX']?></td>
+			  			                <td><?=$lista['IDPRODUCTO']?></td>
 			  			                <td> <a href="<?= ROOT_ADMIN ?>editarColor.php?id=<?= $lista['IDCOLOR'] ?>" class="btn btn-warning"> Editar </a> </td>
 			  			            </tr>
 			  			    	<?php };?>

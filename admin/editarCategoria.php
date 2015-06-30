@@ -27,6 +27,8 @@
 	| haber solo HTML cn algunos tags para PHP para acceder a variables.
 	|
 	*/
+	$id;
+	cate = new Categoria();
 ?>
 
 <div class="content-wrapper">
@@ -49,7 +51,7 @@
 			        <div class="alert alert-info" role="alert">
 			            <strong>Hey!</strong>
 			            <br>
-			            Se agrego correctamente la categoria <?=$_SESSION['categoria']?>! 
+			            Se cambio correctamente la categoria <?=$_SESSION['categoria']?>! 
 			            <?php unset($_SESSION['success_contact']);
 			              unset($_SESSION['categoria']); ?>
 			        </div>
@@ -70,14 +72,14 @@
 			<div class="col-md-offset-2 col-md-8">
 				<div class="box box-solid">
 					<div class="box-header with-border">
-						<h3 class="box-title">Nueva Categoria</h3>
+						<h3 class="box-title">Categoria</h3>
 						<div class="box-tools pull-right">
 							<button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
 						</div>
 					</div>
 					<div class="box-body">
 
-						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>save/agregador-categoria.php" enctype="multipart/form-data">
+						<form class="form-horizontal" method="post" action="<?= ROOT_ADMIN ?>save/update-categoria.php" enctype="multipart/form-data">
 							<fieldset>
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Nombre</label>

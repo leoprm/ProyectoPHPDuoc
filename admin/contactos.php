@@ -84,7 +84,7 @@
 			  			                <td><?=$lista['NOMBRECONTACTO']?></td>
 			  			                <td><?=$lista['EMAILCONTAC']?></td>
 			  			                <td><?=$lista['ASUNTO']?></td>
-			  			                <td><?=$lista['MENSAJE']?></td>
+			  			                <td><?=utf8_encode($lista['MENSAJE'])?></td>
 			  			                <td><?=$lista['FECHAENVIO']?></td>
 			  			                <td> <a href="<?= ROOT_ADMIN ?>editarColor.php?id=<?= $lista['IDCONTACTO'] ?>" class="btn btn-warning"> Editar </a> </td>
 			  			            </tr>

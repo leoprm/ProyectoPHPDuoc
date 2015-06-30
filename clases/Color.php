@@ -105,7 +105,7 @@ class Color
 	}
 
 	public function buscarPorID($idColor){
-		$sql = "SELECT * FROM Color where IDCOLOR=:id";
+		$sql = "SELECT * FROM COLOR where IDCOLOR=:id";
 		$query = $this->db->conexion->prepare($sql);
 
 		$query->bindParam(':id',$idColor);
