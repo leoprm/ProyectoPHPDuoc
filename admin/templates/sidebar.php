@@ -74,10 +74,10 @@
 
 			<!-- Accessos Rapidos -->
 			<li class="header">ATAJOS</li>
-			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=interesados"><i class="fa fa-circle-o text-green"></i> <span>Futuro Cliente</span></a></li>
-			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=reclamos"><i class="fa fa-circle-o text-red"></i> <span>Reclamos</span></a></li>
-			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=sugerencias"><i class="fa fa-circle-o text-yellow"></i> <span>Sugerencias</span></a></li>
-			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=contacto-general"><i class="fa fa-circle-o text-aqua"></i> <span>Consultas Empresa</span></a></li>
+			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=Comprar"><i class="fa fa-circle-o text-green"></i> <span>Futuro Cliente</span></a></li>
+			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=Reclamos"><i class="fa fa-circle-o text-red"></i> <span>Reclamos</span></a></li>
+			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=Sugerencias"><i class="fa fa-circle-o text-yellow"></i> <span>Sugerencias</span></a></li>
+			<li><a href="<?= ROOT_ADMIN ?>contactos.php?filter=ContactoEmpresarial"><i class="fa fa-circle-o text-aqua"></i> <span>Consultas Empresa</span></a></li>
 			<li><a href="<?= ROOT_ADMIN ?>perfil.php"><i class="fa fa-user"></i> <span>Mi Perfil</span></a></li>
 			<li><a href="<?= ROOT_ADMIN ?>logout.php"><i class="fa fa-sign-out"></i> <span>Cerrar Sesión</span></a></li>
 			</ul>

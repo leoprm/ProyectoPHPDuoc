@@ -55,7 +55,7 @@
 			            <br>
 			            Se modifico correctamente la categoria <?=$_SESSION['categoria']?>! 
 			            <?php unset($_SESSION['success_contact']);
-			              unset($_SESSION['categoria']);
+			              unset($_SESSION['categoria']);?>
 			        </div>
 			    </div>
 		    <?php } ?>
@@ -86,7 +86,7 @@
 								<div class="form-group">
 									<label for="inputEmail" class="col-lg-2 control-label">Categoria</label>
 									<div class="col-lg-10">
-										<input class="form-control" id="nomCategoria" placeholder="Nombre" type="text" name="nomCategoria" required="true" patern="[A-Za-z]{50}" value=<?=$nomprod?>>
+										<input class="form-control" id="nomCategoria" placeholder="Nombre" type="text" name="nomCategoria" required="true" patern="[A-Za-z]{50}" value=<?=$nomcat?>>
 									</div>
 								</div>
 								<div class="form-group">

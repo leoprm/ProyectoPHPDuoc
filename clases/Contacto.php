@@ -34,12 +34,20 @@ class Contacto{
 		return $query->execute();
 	}	
 
-	function ObtenerLista(){
-		/*Definición del query que permitira obtener la lista de categorias*/
-		$sqlsel="select * from CONTACTO";
-		
-		/*Preparación SQL*/
-		$querylis = $this->db->conexion->prepare($sqlsel);
+	function ObtenerLista($filtro=null){
+		/*Definición del query que permitira obtener la lista de contactos*/
+		if ($filtro != null) {
+			$sqlsel="select * from CONTACTO where ASUNTO=:filtro";
+			/*Preparación SQL*/
+			$querylis = $this->db->conexion->prepare($sqlsel);
+			$querylis->bindParam(':filtro',$filtro);
+		}
+		else{
+			$sqlsel="select * from CONTACTO";
+			/*Preparación SQL*/
+			$querylis = $this->db->conexion->prepare($sqlsel);
+		}
+			
 		$querylis->execute();	
 
 		return $querylis;

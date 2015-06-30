@@ -105,7 +105,7 @@ class Categoria
 	}
 
 	public function buscarPorID($idCategoria){
-		$sql = "SELECT * FROM CATEGORIA where idcategori=:id";
+		$sql = "SELECT * FROM CATEGORIA where IDCATEGORI=:id";
 		$query = $this->db->conexion->prepare($sql);
 
 		$query->bindParam(':id',$idCategoria);

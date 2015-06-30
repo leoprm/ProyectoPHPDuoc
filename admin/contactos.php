@@ -27,7 +27,8 @@
 	|
 	*/
 	$contacto = new contacto();
-	$listaCont = $contacto->ObtenerLista();
+	$filtro = ( isset($_GET['filter']) && $_GET['filter'] != "" ) ? $_GET['filter'] : null;
+	$listaCont = $contacto->ObtenerLista($filtro);
 ?>
 
 <div class="content-wrapper">
@@ -86,7 +87,6 @@
 			  			                <td><?=$lista['ASUNTO']?></td>
 			  			                <td><?=utf8_encode($lista['MENSAJE'])?></td>
 			  			                <td><?=$lista['FECHAENVIO']?></td>
-			  			                <td> <a href="<?= ROOT_ADMIN ?>editarColor.php?id=<?= $lista['IDCONTACTO'] ?>" class="btn btn-warning"> Editar </a> </td>
 			  			            </tr>
 			  			    	<?php };?>
 		  			        </tbody>

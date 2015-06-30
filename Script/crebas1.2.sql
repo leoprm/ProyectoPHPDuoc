@@ -109,5 +109,3 @@ INSERT INTO `miraentuinterior`.`USUARIO` (`IDUSUARIO`, `EMAILUSER`, `USERNAME`, 
 /*Agregamos un producto de prueba*/
 INSERT INTO `miraentuinterior`.`CATEGORIA` (`IDCATEGORI`,`NOMCATEGOR`, `DESCRIPCATEGO`, `IMAGENCAT`) VALUES (NULL, 'Abstracto', 'Diseños abstractos que...', 'algo.jpg');/*Agregamos un producto de prueba*/
 
-/*Agregamos un contacto de prueba*/
-INSERT INTO `miraentuinterior`.`CONTACTO` (`IDCONTACTO`,`NOMBRECONTACTO`, `EMAILCONTAC`, `MENSAJE`, `ASUNTO`, `FECHAENVIO`) VALUES (NULL, 'Sergio Flores', 'sergio@flores.com', 'Quiero comprar un sticker bañado en oro', 'Factivilidad de Producto', '2015-26-06');
