@@ -1,4 +1,4 @@
-<?php
+	<?php
 require __DIR__.'/../libs/db/db.php';
 
 class Usuario{

@@ -63,7 +63,7 @@
                                 <h3><?= $producto['NOMBREPROD'] ?></h3>
                                 <p><?= $producto['DESCRIPPROD'] ?></p>
                                 <div class="clearfix">
-                                    <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['CODPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
+                                    <a href="<?= ROOT_URL ?>detalle.php?id=<?= $producto['IDPROD'] ?>" class="btn btn-default pull-right">Ver Detalle</a>
                                 </div>
                             </div>
                         </div>

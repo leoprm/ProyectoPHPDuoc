@@ -112,7 +112,7 @@
 		  			        <tbody>
 							<?php foreach ($listaProducto as $row){ ?>	  			 
 							<tr>
-								<td><?=$row['CODPROD']?></td>
+								<td><?=$row['IDPROD']?></td>
 								<td><?=$row['NOMBREPROD']?></td>
 								<td><?=$row['DESCRIPPROD']?></td>
 								<td><?=$row['PRECIO']?></td>
@@ -123,7 +123,7 @@
 								<td>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8" >
-											<a href="<?= ROOT_ADMIN ?>save/delete-producto.php?id=<?= $row['CODPROD'] ?>&img=<?= $row['IMAGENPROD']  ?>&nom=<?= $row['NOMBREPROD']  ?>" 
+											<a href="<?= ROOT_ADMIN ?>save/delete-producto.php?id=<?= $row['IDPROD'] ?>&img=<?= $row['IMAGENPROD']  ?>&nom=<?= $row['NOMBREPROD']  ?>" 
 													class="btn btn-danger" 
 											  		onClick="return confirmation()">
 											 		<span class="glyphicon glyphicon-trash"></span>
@@ -132,7 +132,7 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-2 col-sm-4 col-xs-8">
-											<a href="<?= ROOT_ADMIN ?>update-producto.php?id=<?= $row['CODPROD'] ?>&nom=<?= $row['NOMBREPROD']  ?>&
+											<a href="<?= ROOT_ADMIN ?>update-producto.php?id=<?= $row['IDPROD'] ?>&nom=<?= $row['NOMBREPROD']  ?>&
 											 des=<?= $row['DESCRIPPROD']  ?>&pre=<?= $row['PRECIO']  ?>&anc=<?= $row['DIMANCHO']  ?>
 											 &alt=<?= $row['DIMALTO']  ?>&cnt=<?= $row['CANTIDAD']  ?>&
 											  cate=<?= $row['IDCATEGORI']  ?>&img=<?= $row['IMAGENPROD']  ?>" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></a>

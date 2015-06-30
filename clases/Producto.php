@@ -100,7 +100,7 @@ if( !in_array('Producto', get_declared_classes()) ){
 		public function buscarPorID($idprod){
 			/*Definición del query que permitira traer un nuevo registro*/
 			$sqlsel="select * from PRODUCTO
-			where CODPROD=:prod";
+			where IDPROD=:prod";
 		 
  			/*Preparación SQL*/
  			$querysel = $this->db->conexion->prepare($sqlsel);
@@ -113,11 +113,11 @@ if( !in_array('Producto', get_declared_classes()) ){
 		function obtenerTodos($limit = null,$excluir = []){
 			$limitText = ( is_integer($limit) ) ? ' LIMIT '.$limit : '';
 
-			$excluirText = (count($excluir) > 0) ? ' WHERE CODPROD NOT IN( ' : '';
+			$excluirText = (count($excluir) > 0) ? ' WHERE IDPROD NOT IN( ' : '';
 			foreach ($excluir as $valor){
 				$excluirText .= ( is_numeric($valor) ) ? addslashes($valor).',' : '';
 			}
-			$excluirText = (count($excluir) > 0 && $excluirText != ' WHERE CODPROD NOT IN( ' ) ? substr($excluirText, 0,-1).')' : '';
+			$excluirText = (count($excluir) > 0 && $excluirText != ' WHERE IDPROD NOT IN( ' ) ? substr($excluirText, 0,-1).')' : '';
 
 			$sql = "SELECT * FROM PRODUCTO ".$excluirText." ORDER BY RAND()".$limitText;
 
@@ -130,7 +130,7 @@ if( !in_array('Producto', get_declared_classes()) ){
 		function eliminaProducto($idproducto){
 
 			/*Definición del query que permitira eliminar un registro*/
-			$sqldel="delete from producto where CODPROD=:id";
+			$sqldel="delete from producto where IDPROD=:id";
 
 			/*Preparación SQL*/
 			$querydel=$this->db->conexion->prepare($sqldel);
@@ -153,7 +153,7 @@ if( !in_array('Producto', get_declared_classes()) ){
 			$sqlupd="update producto
 			set idcategori=:cate ,idusuario=:usr,nombreprod=:nomprod,descripprod=:desc,precio=:prec,dimancho=:danc
 			,dimalto=:dalt,imagenprod=:img,color=:colr,cantidad=:cant  
-			where CODPROD=:id";
+			where IDPROD=:id";
 
 
 			/*Preparación SQL*/

@@ -106,6 +106,6 @@ alter table COLOR add constraint FK_TIENE foreign key (IDPRODCUTO)
 /*Agregamos un usuario de prueba*/
 INSERT INTO `miraentuinterior`.`USUARIO` (`IDUSUARIO`, `EMAILUSER`, `USERNAME`, `PASSWORD`, `NOMBREUSER`, `FECHAINGRESO`, `EDITA`) VALUES (NULL, 'grumpy@cat.cl', 'grumpycat', MD5('123'), 'Grumpy Cat', '2015-06-23 16:43:23', '1');
 
-/*Agregamos un producto de prueba*/
+/*Agregamos una categoria de prueba*/
 INSERT INTO `miraentuinterior`.`CATEGORIA` (`IDCATEGORI`,`NOMCATEGOR`, `DESCRIPCATEGO`, `IMAGENCAT`) VALUES (NULL, 'Abstracto', 'Diseños abstractos que...', 'algo.jpg');/*Agregamos un producto de prueba*/
 
