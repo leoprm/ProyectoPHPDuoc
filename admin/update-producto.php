@@ -27,7 +27,7 @@
 	$cant= ( isset($_GET['cnt']) && $_GET['cnt'] != "" ) ? $_GET['cnt'] : null;
 	$cat= ( isset($_GET['cate']) && $_GET['cate'] != "" ) ? $_GET['cate'] : null;
     $imgn= ( isset($_GET['img']) && $_GET['img'] != "" ) ? $_GET['img'] : null;
-    $colores=dechex($clor);
+    $colores=dechex($color);
 	/*
 	|--------------------------------------------------------------------------
 	| Contenido del Sitio
@@ -45,7 +45,7 @@
 		<h1>Productos</h1>
 		<ol class="breadcrumb">
 			<li><a href="<?= ROOT_ADMIN ?>index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-			<li class="active"><i class="fa fa-shopping-cart"></i> Prodcutos</li>
+			<li class="active"><i class="fa fa-shopping-cart"></i> Productos</li>
 		</ol>
 	</section>
 	<!-- Contenido -->

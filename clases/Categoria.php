@@ -113,5 +113,40 @@ class Categoria
 
 		return $query->fetch();
 	}
+
+
+		function actualizaCategoria($idcat){
+
+			/*Definicion del query que permitira actualizar */
+			$sqlupd="update CATEGORIA
+			set NOMCATEGOR=:nom ,DESCRIPCATEGO=:desc,IMAGENCAT=:img
+			where IDCATEGORI=:id";
+
+
+			/*Preparación SQL*/
+			try {
+				$queryup=$this->db->conexion->prepare($sqlupd);
+			}
+			catch( PDOException $Exception ) {
+				echo "Clase Categoria:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				return false;
+			}
+			
+			/*Asignacion de parametros utilizando bindparam*/
+			$queryup->bindParam(':cate',$categoria);
+			$queryup->bindParam(':nom',$this->nombre);
+			$queryup->bindParam(':desc',$this->descripcion);
+			$queryup->bindParam(':img',$this->imagen);
+
+			try {
+				$queryup->execute();
+			}
+			catch( PDOException $Exception ) {
+				echo "Clase Categoria:ERROR:Ejecución Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				die();
+				return false;
+			}
+			return true;
+		}
 }
  ?>
