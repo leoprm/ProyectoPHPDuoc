@@ -36,7 +36,7 @@
 			if($producto->AgregarProducto($categoria,$color,$usuario)){
 				$_SESSION['success_contact'] = true;
 				$_SESSION['producto']        = $nomProducto;
-				$target_path                 = ROOT_URL. "assets/dist/img/uploads/";
+				$target_path                 = __DIR__."/../../assets/dist/img/uploads/";
 				$target_path                 = $target_path . basename( $_FILES['imagen']['name']);
 				if(move_uploaded_file($_FILES['imagen']['tmp_name'], $target_path)) {
 					echo "El archivo ". basename( $_FILES['imagen']['name']). " ha sido subido";

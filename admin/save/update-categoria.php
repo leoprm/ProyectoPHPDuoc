@@ -37,8 +37,6 @@
 				}
 				else{ if($extension==null){
 					$_SESSION['success_update'] = true;
-				}else{
-					$_SESSION['error_tmp'] = "Ocurrio un error al momento de subir la imagen, por favor intenete nuevamente.";
 				}
 				}
 				
