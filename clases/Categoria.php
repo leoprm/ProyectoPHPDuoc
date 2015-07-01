@@ -133,11 +133,13 @@ class Categoria
 			}
 			
 			/*Asignacion de parametros utilizando bindparam*/
-			$queryup->bindParam(':cate',$categoria);
+			$queryup->bindParam(':id',$idcat);
 			$queryup->bindParam(':nom',$this->nombre);
 			$queryup->bindParam(':desc',$this->descripcion);
 			$queryup->bindParam(':img',$this->imagen);
 
+			//echo "<pre>";
+			//print_r( $queryup->debugDumpParams() );die();
 			try {
 				$queryup->execute();
 			}

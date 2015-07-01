@@ -77,7 +77,7 @@
 			  			                <td><?=$lista['NOMCATEGOR']?></td>
 			  			                <td><?= utf8_encode($lista['DESCRIPCATEGO'])?></td>
 			  			                <td><?=$lista['IMAGENCAT']?></td>
-			  			                <td> <a href="<?= ROOT_ADMIN ?>editarCategoria.php?id=<?= $lista['IDCATEGO'] ?>" class="btn btn-warning"> Editar </a> </td>
+			  			                <td> <a href="<?= ROOT_ADMIN ?>editarCategoria.php?id=<?= $lista['IDCATEGORI'] ?>" class="btn btn-warning"> Editar </a> </td>
 			  			            </tr>
 			  			         <?php };?>
 		  			        </tbody>

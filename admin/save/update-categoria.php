@@ -9,7 +9,7 @@
 	*/
 	require __DIR__.'/../../config/env.php';
 	require __DIR__.'/../../config/auth.php';
-	require __DIR__.'/../clases/Categoria.php';
+	require __DIR__.'/../../clases/Categoria.php';
 
 	if( !empty($_POST['nomCategoria']) && !empty($_POST['descripcion']))
 	{
@@ -27,7 +27,7 @@
 			$extension == null) {
 
 
-			if($Categoria->actualizaCategoria($idcat)){
+			if($categoria->actualizaCategoria($idcat)){
 				$_SESSION['success_update'] = true;
 				$_SESSION['categoria']       = $nomCategoria;
 				$target_path                 = ROOT_URL. "assets/dist/img/uploads/";

@@ -93,7 +93,7 @@
 									<label for="textArea" class="col-lg-2 control-label">Descripción</label>
 									<div class="col-lg-10">
 										<textarea class="form-control" rows="3" id="descripcion" placeholder="Describe brevemente la categoria" name="descripcion" required="true" maxleng="150"
-										><?=$desc?></textarea>
+										><?=utf8_encode($desc)?></textarea>
 									</div>
 								</div>
 								<div class="form-group">
