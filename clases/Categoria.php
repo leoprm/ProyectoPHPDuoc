@@ -28,8 +28,8 @@ class Categoria
 
 	function AgregarCategoria(){
 		/*Definición del query que permitira ingresar un nuevo registro*/
-		$sqlins="insert into categoria(IDCATEGOR, NOMCATEGOR, DESCIPTCATEGO, IMAGECAT)
-		values(null,:nom,:desc,:imag)";
+		$sqlins="insert into categoria( NOMCATEGOR, DESCRIPCATEGO, IMAGENCAT)
+		values(:nom,:desc,:imag)";
 		/*Verifica que la categoria no exista*/
 		if ($this->VerificaCategoria()){
 			echo "La categoria $this->nombre existe en la base de datos.";
@@ -48,7 +48,7 @@ class Categoria
 		
 		$query->bindParam(':nom',$this->nombre);
 		$query->bindParam(':desc',$this->descripcion);
-		$query->bindParam(':imag',$this->img);
+		$query->bindParam(':imag',$this->imagen);
 		
 		try {
 			$query->execute();
@@ -66,7 +66,7 @@ class Categoria
 		where NOMCATEGOR=:cat";
 	
 		/*Preparación SQL*/
-		$querysel=$db->prepare($sqlsel);
+		$querysel=$this->db->conexion->prepare($sqlsel);
 	
 		/*Asignación de parametros utilizando bindparam*/
 		$querysel->bindParam(':cat',$this->nombre);

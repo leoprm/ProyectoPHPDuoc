@@ -11,21 +11,21 @@
 	require __DIR__.'/../../config/auth.php';
 	require __DIR__.'/../../clases/Categoria.php';
 
-	if( !empty($_POST['nomCategoria']) && !empty($_POST['descripcion']) && !empty($_POST['imagen'] && !empty($_POST['name']) )
+	if( !empty($_POST['nomCategoria']) && !empty($_POST['descripcion']) )
 	{
 		$nomCategoria= $_POST['nomCategoria'];
 		$descripcion = $_POST['descripcion'];
 		$imagen      = $_FILES['imagen']['name'];
 		$categoria    = new Categoria($nomCategoria,$descripcion,$imagen);
 		$extension   = pathinfo($imagen,PATHINFO_EXTENSION);
-
+        var_dump($categoria);
 		if(	$extension == "jpg" ||
 			$extension == "png" ||
 			$extension == "jpeg" ||
 			$extension == "gif" ) {
 
 
-			if($categoria->Agregarcategoria()){
+			if($categoria->AgregarCategoria()){
 				$_SESSION['success_contact'] = true;
 				$_SESSION['categoria']        = $nomCategoria;
 				$target_path                 = ROOT_URL. "assets/dist/img/uploads/";
