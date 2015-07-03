@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <img src="<?= ROOT_URL.'assets/dist/img/'.$categoria["IMAGENCAT"] ?>" class="img-circle imagen-presentacion">
+                            <img src="<?= ROOT_URL.'assets/dist/img/uploads/'.$categoria["IMAGENCAT"] ?>" class="img-circle imagen-presentacion">
                         </div>
                     </div>
                 </div>
